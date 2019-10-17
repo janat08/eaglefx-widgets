@@ -1,11 +1,11 @@
 import m from "mithril";
 // import 'bulma'
-import horsey from "horsey"
-import typeahead from './autocomplete/index'
+// import horsey from "horsey"
+// import typeahead from './autocomplete/index'
 
-horsey(document.querySelector('.horsey'), {
-    source: [{ list: ['banana', 'apple', 'orange'] }]
-});
+// horsey(document.querySelector('.horsey'), {
+//     source: [{ list: ['banana', 'apple', 'orange'] }]
+// });
 
 const a = ``
 const currenciesList = ["USD", "EUR", "AUD", "CAD"]
@@ -52,37 +52,77 @@ if (null) {
     //     )
     // }
 }
-function dropdown({ label, opts, target }) {
-    return (
-        m('div', [
-            m('div.dropdown.is-active', [
-                m('div.dropdown-trigger', [
-                    m('button.button[aria-haspopup=true][aria-controls=dropdown-menu]', [
-                        m('span', "label")
-                        , m('span.icon.is-small', [
-                            m('i.fas.fa-angle-down[aria-hidden=true]')
+function dropdown() {
+    return {
+        // activate:()=>{
+        //     console.log(this.activated, this)
+        // },
+        oninit: function({attrs: {label, opts, target}}){
+            this.label = label
+            this.opts = opts
+            this.target = target
+            this.activated = false
+            this.value = st[target]
+            this.veryFirst = true
+            this.activate = (e)=>{
+                this.activated = !this.activated
+                this.value = st[target]
+                e.target.value = e
+                this.opts = opts
+            }
+            this.filter = (x)=>{
+                console.log(x.key, x.target.value)
+                this.value = x.target.value
+                this.opts = opts.filter(x=>x.toLowerCase().includes(this.value.toLowerCase()))
+                console.log("running", this.value, this.opts)
+            }
+            this.select = (x,i)=>{
+                st[target] = x
+                this.value = x
+                this.activate()
+            }
+            this.enter = x=>{
+                let k = x.key
+                if (k == "Enter" || k == "Tab"){
+                    this.select(this.opts[0])
+                    return false
+                }
+            }
+        },
+        view: function ({state: {label, opts, target, activated}}) {
+            return (
+                m('div', [
+                    m('span', label),
+                    m('div', { class: `dropdown ${activated ? 'is-active' : "ab"}` }, [
+                        m('div.dropdown-trigger', [
+                            m('button.button[aria-haspopup=true][aria-controls=dropdown-menu]'
+                                , { onclick: this.activate, }
+                                , [ activated? 
+                                    m('input', {
+                                        // onblur: this.activate,
+                                        oninput: this.filter,
+                                        onkeydown: this.enter,
+                                        value: this.value,
+                                        style: 'border:none;outline:none', 
+                                        oncreate: vnode=>{vnode.dom.focus(), vnode.dom.select()}
+                                    }): m('span', st[target])
+                                    , m('span.icon.is-small', [
+                                        m('i.fas.fa-angle-down[aria-hidden=true]')
+                                    ])
+                                ])
+                        ])
+                        , m('div.dropdown-menu[role=menu]', [
+                            m('div.dropdown-content', 
+                                this.opts.map((x,i)=>m('a.dropdown-item[href=#]', {
+                                    onclick: ()=>this.select(x,i)
+                                }, x))
+                            )
                         ])
                     ])
                 ])
-                , m('div.dropdown-menu[role=menu]', [
-                    m('div.dropdown-content', [
-                        m('a.dropdown-item.is-active[href=#]', "active item")
-                    ])
-                ])
-            ])
-            , m("div.field", [
-                m("label.label", label),
-                m("div.control", [
-                    m(`select.select`,
-                        { oninput: function (e) { st[target] = e.target.value; console.log(e.target.value) } }
-                        , opts.map(x => {
-                            return m('option', x)
-                        }
-                        ))
-                ]),
-            ])
-        ])
-    )
+            )
+        }
+    }
 }
 
 
@@ -149,7 +189,6 @@ var st = {
             })
         })
         Promise.all(several).then(x => {
-            console.log(1, x)
             st.list = x
             m.redraw()
         })
@@ -173,8 +212,8 @@ const Pip = {
     view: function () {
 
         return m("div",
-            [dropdown({ label: "Account Currency:", target: "acc", opts: currenciesList })
-                , dropdown({ label: "Currency Pair:", target: "conv", opts: conversionsList })
+            [m(dropdown, { label: "Account Currency:", target: "acc", opts: currenciesList })
+                , m(dropdown, { label: "Currency Pair:", target: "conv", opts: conversionsList })
                 , field({ label: "Trade Size (In units):", target: "size" })
                 , field({ label: "Current Conversion Price: (USD/USD):", text: 1, target: "curConv" })
                 , field({ label: "PIP:", text: 1, target: "pip" })
@@ -183,7 +222,6 @@ const Pip = {
     }
 }
 
-console.log(typeahead)
 m.mount(document.body, Pip);
 
 

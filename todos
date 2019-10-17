@@ -1,6 +1,7 @@
 
 
-flags
+put flags into dropdown
+go through ux checklist for autocomplete components, and test on chrome
 failing test case
 show correct exchange rate for pip, show two
     rates in different account, by using split
