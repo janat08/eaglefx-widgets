@@ -2216,88 +2216,19 @@ m.PromisePolyfill = require("./promise/polyfill")
 
 module.exports = m
 
-},{"./hyperscript":"node_modules/mithril/hyperscript.js","./request":"node_modules/mithril/request.js","./mount-redraw":"node_modules/mithril/mount-redraw.js","./route":"node_modules/mithril/route.js","./render":"node_modules/mithril/render.js","./querystring/parse":"node_modules/mithril/querystring/parse.js","./querystring/build":"node_modules/mithril/querystring/build.js","./pathname/parse":"node_modules/mithril/pathname/parse.js","./pathname/build":"node_modules/mithril/pathname/build.js","./render/vnode":"node_modules/mithril/render/vnode.js","./promise/polyfill":"node_modules/mithril/promise/polyfill.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/bulma/bulma.sass":[function(require,module,exports) {
-
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"./hyperscript":"node_modules/mithril/hyperscript.js","./request":"node_modules/mithril/request.js","./mount-redraw":"node_modules/mithril/mount-redraw.js","./route":"node_modules/mithril/route.js","./render":"node_modules/mithril/render.js","./querystring/parse":"node_modules/mithril/querystring/parse.js","./querystring/build":"node_modules/mithril/querystring/build.js","./pathname/parse":"node_modules/mithril/pathname/parse.js","./pathname/build":"node_modules/mithril/pathname/build.js","./render/vnode":"node_modules/mithril/render/vnode.js","./promise/polyfill":"node_modules/mithril/promise/polyfill.js"}],"index.js":[function(require,module,exports) {
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.st = void 0;
 
 var _mithril = _interopRequireDefault(require("mithril"));
 
-require("bulma");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import 'bulma'
 var a = "";
 var currenciesList = ["USD", "EUR", "AUD", "CAD"];
 var conversionsList = currenciesList.reduce(function (a, x) {
@@ -2361,7 +2292,7 @@ function dropdown(_ref2) {
 
 var st = {
   list: [],
-  account: "USD",
+  acc: "USD",
   conv: "USD/EUR",
 
   get tp() {
@@ -2373,11 +2304,34 @@ var st = {
   },
 
   size: 10000,
-  pip: 1,
+
+  get pip() {
+    var size = this.size,
+        curConv = this.curConv,
+        bt = this.bt,
+        tp = this.tp,
+        acc = this.acc;
+    var pip = 0.0001;
+    var baUSD = acc == "USD",
+        isUSD = bt === "USD",
+        isEQ = bt == acc,
+        res = 1;
+
+    if (isEQ) {
+      res = size * pip;
+    }
+
+    if (bt == "JPY") {
+      console.log(res);
+      res * 100;
+    }
+
+    return res;
+  },
 
   get curConv() {
     var list = this.list,
-        account = this.account,
+        acc = this.acc,
         conv = this.conv,
         bt = this.bt,
         tp = this.tp;
@@ -2387,12 +2341,16 @@ var st = {
     }
 
     var res = list.filter(function (x) {
-      return x.base == account;
+      return x.base == acc;
     })[0].rates[bt];
     return res;
   },
 
   loadList: function loadList() {
+    _mithril.default.request({
+      url: "https://api.exchangeratesapi.io/latest?symbols=USD,GBP"
+    }).then(console.log);
+
     var type = "USD";
     var base = "https://api.exchangeratesapi.io/latest";
     var query = "?base=".concat(type);
@@ -2400,6 +2358,7 @@ var st = {
     var several = currenciesList.map(function (x) {
       var base = "https://api.exchangeratesapi.io/latest";
       var query = "?base=".concat(x);
+      query + "&symbols=" + currenciesList.join(',');
       var all = base + query;
       return _mithril.default.request({
         method: "GET",
@@ -2409,6 +2368,7 @@ var st = {
       });
     });
     Promise.all(several).then(function (x) {
+      console.log(1, x);
       st.list = x;
 
       _mithril.default.redraw();
@@ -2423,13 +2383,14 @@ var st = {
     });
   }
 };
+exports.st = st;
 window.a = st;
 var Pip = {
   oninit: st.loadList,
   view: function view() {
     return (0, _mithril.default)("div", [dropdown({
       label: "Account Currency:",
-      target: "account",
+      target: "acc",
       opts: currenciesList
     }), dropdown({
       label: "Currency Pair:",
@@ -2451,7 +2412,7 @@ var Pip = {
 };
 
 _mithril.default.mount(document.body, Pip);
-},{"mithril":"node_modules/mithril/index.js","bulma":"node_modules/bulma/bulma.sass"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"mithril":"node_modules/mithril/index.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

@@ -1,5 +1,5 @@
 import m from "mithril";
-import 'bulma'
+// import 'bulma'
 
 const a = ``
 const currenciesList = ["USD", "EUR", "AUD", "CAD"]
@@ -9,7 +9,7 @@ const conversionsList = currenciesList.reduce((a, x)=>{
             a.push(x+"/"+y)
         }
     }
-    return a
+    return a 
 }, [])
 
 function field ({label, placeholder, text, target}) {
@@ -45,7 +45,7 @@ function dropdown ({label, opts, target}){
 
 var st = {
     list: [],
-    account: "USD",
+    acc: "USD",
     conv: "USD/EUR",
     get tp(){
         return this.conv.split('/')[0]
@@ -54,23 +54,43 @@ var st = {
         return this.conv.split('/')[1]
     },
     size: 10000,
-    pip: 1,
+    get pip(){
+        const {size, curConv, bt, tp, acc: acc} = this
+        let pip = 0.0001
+        let baUSD = acc == "USD",
+        isUSD = bt === "USD",
+        isEQ = bt == acc,
+        res = 1
+        if (isEQ) {
+            res = size*pip
+        }
+        if (bt == "JPY"){
+            console.log(res)
+            res*100
+        }
+        return res
+    },
     get curConv(){
-        const {list, account, conv, bt, tp} = this
+        const {list, acc, conv, bt, tp} = this
         if (!list.length){
             return "loading"
         }
-        const res = list.filter(x=>x.base == account)[0].rates[bt]
+        const res = list.filter(x=>x.base == acc)[0].rates[bt]
         return res
     },
     loadList: function() {
+            m.request({
+                url: "https://api.exchangeratesapi.io/latest?symbols=USD,GBP"
+            }).then(console.log)
+        
         const type="USD"
         const base = "https://api.exchangeratesapi.io/latest"
         const query = `?base=${type}`
         const all = base+query
         const several = currenciesList.map(x=>{
             const base = "https://api.exchangeratesapi.io/latest"
-            const query = `?base=${x}`
+            let query = `?base=${x}`
+            query + "&symbols=" + currenciesList.join(',')
             const all = base+query
             return m.request({
                 method: "GET",
@@ -80,6 +100,7 @@ var st = {
             })
         })
         Promise.all(several).then(x=>{
+            console.log(1, x)
             st.list = x
             m.redraw()
         })
@@ -101,7 +122,7 @@ const Pip = {
     view: function () {
 
         return m("div", 
-        [ dropdown({label: "Account Currency:", target: "account", opts: currenciesList})
+        [ dropdown({label: "Account Currency:", target: "acc", opts: currenciesList})
         , dropdown({label: "Currency Pair:", target: "conv", opts: conversionsList})
         , field({label: "Trade Size (In units):", target: "size"})
         , field({label: "Current Conversion Price: (USD/USD):", text: 1, target: "curConv"})
@@ -112,3 +133,7 @@ const Pip = {
 }
 
 m.mount(document.body, Pip);
+
+
+
+export {st}

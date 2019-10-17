@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "test": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,10 @@
     "mithril": "^2.0.4"
   },
   "devDependencies": {
-    "@types/mithril": "^2.0.0"
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@types/mithril": "^2.0.0",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0"
   }
 }
