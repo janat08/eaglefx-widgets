@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "bulma": "^0.7.5",
+    "horsey": "^4.2.2",
+    "lodash": "^4.17.15",
     "mithril": "^2.0.4"
   },
   "devDependencies": {
