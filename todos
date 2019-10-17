@@ -1,0 +1,4 @@
+make custom elements
+make styles scoped to custom elements, while making sure to use 
+    reusable components so that styles dont get duplicated
+make state within function scopes
