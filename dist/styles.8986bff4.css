@@ -1,0 +1,26 @@
+/* @import 'flag-icon-css' */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+* {
+    text-align: center
+
+}
+
+/* .brand-background {
+    background-size:cover;
+    background-image: url("https://www.eaglefx.com/wp-content/uploads/2019/07/logo_footer.png");
+    background-color: #141420;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+} */
+
+/*# sourceMappingURL=/styles.8986bff4.css.map */

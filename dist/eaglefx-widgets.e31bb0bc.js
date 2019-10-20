@@ -2216,7 +2216,207 @@ m.PromisePolyfill = require("./promise/polyfill")
 
 module.exports = m
 
-},{"./hyperscript":"node_modules/mithril/hyperscript.js","./request":"node_modules/mithril/request.js","./mount-redraw":"node_modules/mithril/mount-redraw.js","./route":"node_modules/mithril/route.js","./render":"node_modules/mithril/render.js","./querystring/parse":"node_modules/mithril/querystring/parse.js","./querystring/build":"node_modules/mithril/querystring/build.js","./pathname/parse":"node_modules/mithril/pathname/parse.js","./pathname/build":"node_modules/mithril/pathname/build.js","./render/vnode":"node_modules/mithril/render/vnode.js","./promise/polyfill":"node_modules/mithril/promise/polyfill.js"}],"index.js":[function(require,module,exports) {
+},{"./hyperscript":"node_modules/mithril/hyperscript.js","./request":"node_modules/mithril/request.js","./mount-redraw":"node_modules/mithril/mount-redraw.js","./route":"node_modules/mithril/route.js","./render":"node_modules/mithril/render.js","./querystring/parse":"node_modules/mithril/querystring/parse.js","./querystring/build":"node_modules/mithril/querystring/build.js","./pathname/parse":"node_modules/mithril/pathname/parse.js","./pathname/build":"node_modules/mithril/pathname/build.js","./render/vnode":"node_modules/mithril/render/vnode.js","./promise/polyfill":"node_modules/mithril/promise/polyfill.js"}],"curToFlag.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+// import codes from'./countryCodes.json'
+// import curCodes from './currencyCodes.json'
+//flags used with, country codes there too (they're not entirely ISO based)
+// https://github.com/lipis/flag-icon-css
+// currency codes
+// https://github.com/annexare/Countries/blob/master/data/countries.json
+//EUR->EU not parsed, so is USD
+function mapCurrenciesToFlags() {
+  var map = {};
+
+  for (var nameCode in codes) {
+    // const name = codes[nameCode]
+    var country = curCodes[nameCode];
+
+    if (country) {
+      map[country.currency] = nameCode;
+    }
+  }
+
+  console.log(map);
+} // mapCurrenciesToFlags()
+
+
+var curToFlag = {
+  "EUR": "EU",
+  "AED": "AE",
+  "AFN": "AF",
+  "XCD": "VC",
+  "ALL": "AL",
+  "AMD": "AM",
+  "AOA": "AO",
+  "": "AQ",
+  "ARS": "AR",
+  "USD": "US",
+  "AUD": "TV",
+  "AWG": "AW",
+  "AZN": "AZ",
+  "BAM": "BA",
+  "BBD": "BB",
+  "BDT": "BD",
+  "XOF": "TG",
+  "BGN": "BG",
+  "BHD": "BH",
+  "BIF": "BI",
+  "BMD": "BM",
+  "BND": "BN",
+  "BOB,BOV": "BO",
+  "BRL": "BR",
+  "BSD": "BS",
+  "BTN,INR": "BT",
+  "NOK": "SJ",
+  "BWP": "BW",
+  "BYR": "BY",
+  "BZD": "BZ",
+  "CAD": "CA",
+  "CDF": "CD",
+  "XAF": "TD",
+  "CHE,CHF,CHW": "CH",
+  "NZD": "TK",
+  "CLF,CLP": "CL",
+  "CNY": "CN",
+  "COP": "CO",
+  "CRC": "CR",
+  "CUC,CUP": "CU",
+  "CVE": "CV",
+  "ANG": "SX",
+  "CZK": "CZ",
+  "DJF": "DJ",
+  "DKK": "GL",
+  "DOP": "DO",
+  "DZD": "DZ",
+  "EGP": "EG",
+  "MAD,DZD,MRU": "EH",
+  "ERN": "ER",
+  "ETB": "ET",
+  "FJD": "FJ",
+  "FKP": "FK",
+  "GBP": "JE",
+  "GEL": "GE",
+  "GHS": "GH",
+  "GIP": "GI",
+  "GMD": "GM",
+  "GNF": "GN",
+  "GTQ": "GT",
+  "GYD": "GY",
+  "HKD": "HK",
+  "HNL": "HN",
+  "HRK": "HR",
+  "HTG,USD": "HT",
+  "HUF": "HU",
+  "IDR": "ID",
+  "ILS": "PS",
+  "INR": "IN",
+  "IQD": "IQ",
+  "IRR": "IR",
+  "ISK": "IS",
+  "JMD": "JM",
+  "JOD": "JO",
+  "JPY": "JP",
+  "KES": "KE",
+  "KGS": "KG",
+  "KHR": "KH",
+  "KMF": "KM",
+  "KPW": "KP",
+  "KRW": "KR",
+  "KWD": "KW",
+  "KYD": "KY",
+  "KZT": "KZ",
+  "LAK": "LA",
+  "LBP": "LB",
+  "CHF": "LI",
+  "LKR": "LK",
+  "LRD": "LR",
+  "LSL,ZAR": "LS",
+  "LYD": "LY",
+  "MAD": "MA",
+  "MDL": "MD",
+  "MGA": "MG",
+  "MKD": "MK",
+  "MMK": "MM",
+  "MNT": "MN",
+  "MOP": "MO",
+  "MRU": "MR",
+  "MUR": "MU",
+  "MVR": "MV",
+  "MWK": "MW",
+  "MXN": "MX",
+  "MYR": "MY",
+  "MZN": "MZ",
+  "NAD,ZAR": "NA",
+  "XPF": "WF",
+  "NGN": "NG",
+  "NIO": "NI",
+  "NPR": "NP",
+  "OMR": "OM",
+  "PAB,USD": "PA",
+  "PEN": "PE",
+  "PGK": "PG",
+  "PHP": "PH",
+  "PKR": "PK",
+  "PLN": "PL",
+  "PYG": "PY",
+  "QAR": "QA",
+  "RON": "RO",
+  "RSD": "RS",
+  "RUB": "RU",
+  "RWF": "RW",
+  "SAR": "SA",
+  "SBD": "SB",
+  "SCR": "SC",
+  "SDG": "SD",
+  "SEK": "SE",
+  "SGD": "SG",
+  "SHP": "SH",
+  "SLL": "SL",
+  "SOS": "SO",
+  "SRD": "SR",
+  "SSP": "SS",
+  "STN": "ST",
+  "SVC,USD": "SV",
+  "SYP": "SY",
+  "SZL": "SZ",
+  "THB": "TH",
+  "TJS": "TJ",
+  "TMT": "TM",
+  "TND": "TN",
+  "TOP": "TO",
+  "TRY": "TR",
+  "TTD": "TT",
+  "TWD": "TW",
+  "TZS": "TZ",
+  "UAH": "UA",
+  "UGX": "UG",
+  "USD,USN,USS": "US",
+  "UYI,UYU": "UY",
+  "UZS": "UZ",
+  "VES": "VE",
+  "VND": "VN",
+  "VUV": "VU",
+  "WST": "WS",
+  "YER": "YE",
+  "ZAR": "ZA",
+  "ZMK": "ZM",
+  "USD,ZAR,BWP,GBP,AUD,CNY,INR,JPY": "ZW"
+};
+Object.assign(curToFlag, {
+  EUR: 'EU',
+  USD: 'US',
+  AUD: 'AU'
+});
+var _default = curToFlag;
+exports.default = _default;
+},{}],"index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2226,16 +2426,14 @@ exports.st = void 0;
 
 var _mithril = _interopRequireDefault(require("mithril"));
 
+var _curToFlag = _interopRequireDefault(require("./curToFlag"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import 'bulma'
-// import horsey from "horsey"
-// import typeahead from './autocomplete/index'
-// horsey(document.querySelector('.horsey'), {
-//     source: [{ list: ['banana', 'apple', 'orange'] }]
-// });
+window.ab = _curToFlag.default;
 var a = "";
-var currenciesList = ["USD", "EUR", "AUD", "CAD"];
+var lg = console.log;
+var currenciesList = ["USD", "EUR", "AUD", "CAD", "GBP", "JPY"];
 var conversionsList = currenciesList.reduce(function (a, x) {
   var _iteratorNormalCompletion = true;
   var _didIteratorError = false;
@@ -2265,37 +2463,41 @@ var conversionsList = currenciesList.reduce(function (a, x) {
   }
 
   return a;
-}, []);
+}, []); // https://cdn.countryflags.com/download/united-states-of-america/flag-png-round-icon-32.png
 
 function field(_ref) {
   var label = _ref.label,
       placeholder = _ref.placeholder,
       text = _ref.text,
       target = _ref.target;
-  var control = text ? st[target] : (0, _mithril.default)("div.control", [(0, _mithril.default)("input.input[placeholder=".concat(placeholder, "]"), {
+  var control = (0, _mithril.default)('.field-body', [(0, _mithril.default)('.field', [(0, _mithril.default)("div.control", {
+    style: "text-align: center;"
+  }, text ? (0, _mithril.default)('span', st[target]) : [(0, _mithril.default)("input.input[placeholder=".concat(placeholder, "]"), {
     oninput: function oninput(e) {
       st[target] = e.target.value;
     },
-    value: st[target]
-  })]);
-  return (0, _mithril.default)("div.field", [(0, _mithril.default)("label.label", label), control]);
+    value: st[target],
+    style: "text-align: center;",
+    type: 'number'
+  })])])]);
+  return (0, _mithril.default)("div.field.is-horizontal", [(0, _mithril.default)("div.field-label", [(0, _mithril.default)('label.label', label)]), control]);
 }
 
-if (null) {// function dropdown ({label, opts, target}){
-  //     return (
-  //         m("div.field", [
-  //             m("label.label", label),
-  //             m("div.control", [
-  //                 m(`select.select`,
-  //                 { oninput: function (e) {st[target] = e.target.value; console.log(e.target.value)}}
-  //                 , opts.map(x=>{
-  //                         return m('option', x)
-  //                     } 
-  //                 ))
-  //             ]),
-  //         ])
-  //     )
-  // }
+function flaggedSpan(x) {
+  var top = _curToFlag.default[tp(x)].toLowerCase();
+
+  var res = [(0, _mithril.default)('span.icon', [(0, _mithril.default)('figure.image.is-16x16', [(0, _mithril.default)("img.is-rounded[src=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/flags/1x1/".concat(top, ".svg]"))])]), (0, _mithril.default)('span', x)];
+  var pair = x.length > 3;
+
+  if (pair) {
+    var bot = _curToFlag.default[bt(x)].toLowerCase();
+
+    res.push((0, _mithril.default)('span.icon', [(0, _mithril.default)('figure.image.is-16x16', [(0, _mithril.default)("img.is-rounded[src=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/flags/1x1/".concat(bot, ".svg]"))])]));
+  }
+
+  return (0, _mithril.default)('span', {
+    style: 'display:inherit'
+  }, res);
 }
 
 function dropdown() {
@@ -2317,23 +2519,37 @@ function dropdown() {
       this.value = st[target];
       this.veryFirst = true;
 
+      this.inIn = function () {
+        lg(_this.input);
+        if (!_this.input) return;
+
+        _this.input.focus();
+
+        _this.input.select();
+      };
+
       this.activate = function (e) {
+        lg('activate');
         _this.activated = !_this.activated;
         _this.value = st[target];
-        e.target.value = e;
+
+        if (!_this.activated) {//e.target.value = e
+        } else {
+          _this.inIn();
+        }
+
         _this.opts = opts;
       };
 
       this.filter = function (x) {
-        console.log(x.key, x.target.value);
         _this.value = x.target.value;
         _this.opts = opts.filter(function (x) {
           return x.toLowerCase().includes(_this.value.toLowerCase());
         });
-        console.log("running", _this.value, _this.opts);
       };
 
       this.select = function (x, i) {
+        lg('selec');
         st[target] = x;
         _this.value = x;
 
@@ -2344,6 +2560,8 @@ function dropdown() {
         var k = x.key;
 
         if (k == "Enter" || k == "Tab") {
+          lg("enter");
+
           _this.select(_this.opts[0]);
 
           return false;
@@ -2358,28 +2576,64 @@ function dropdown() {
           opts = _ref3$state.opts,
           target = _ref3$state.target,
           activated = _ref3$state.activated;
-      return (0, _mithril.default)('div', [(0, _mithril.default)('span', label), (0, _mithril.default)('div', {
-        class: "dropdown ".concat(activated ? 'is-active' : "ab")
-      }, [(0, _mithril.default)('div.dropdown-trigger', [(0, _mithril.default)('button.button[aria-haspopup=true][aria-controls=dropdown-menu]', {
-        onclick: this.activate
+      return (0, _mithril.default)('div.field.is-horizontal', [, // m('i', {src=""})
+      // , m('img[src=https://cdn.countryflags.com/download/united-states-of-america/flag-png-round-icon-32.png')
+      (0, _mithril.default)('div.field-label', [(0, _mithril.default)('label.label', label)]), (0, _mithril.default)('div.field-body', [(0, _mithril.default)('div.control', {
+        style: {
+          width: '100%'
+        }
+      }, [, (0, _mithril.default)('div', {
+        class: "dropdown ".concat(activated ? 'is-active' : "ab"),
+        style: {
+          width: '100%'
+        },
+        onblur: this.activate
+      }, [(0, _mithril.default)('div.dropdown-trigger', {
+        style: {
+          width: '100%'
+        }
+      }, [(0, _mithril.default)('button.button[aria-haspopup=true][aria-controls=dropdown-menu]', {
+        onclick: this.activate,
+        style: {
+          width: '100%'
+        }
       }, [activated ? (0, _mithril.default)('input', {
-        // onblur: this.activate,
         oninput: this.filter,
         onkeydown: this.enter,
         value: this.value,
-        style: 'border:none;outline:none',
+        size: 8,
+        style: 'border:none;outline:none;width=10px',
         oncreate: function oncreate(vnode) {
-          vnode.dom.focus(), vnode.dom.select();
+          _this2.input = vnode.dom;
+          lg(_this2);
+
+          _this2.inIn();
         }
-      }) : (0, _mithril.default)('span', st[target]), (0, _mithril.default)('span.icon.is-small', [(0, _mithril.default)('i.fas.fa-angle-down[aria-hidden=true]')])])]), (0, _mithril.default)('div.dropdown-menu[role=menu]', [(0, _mithril.default)('div.dropdown-content', this.opts.map(function (x, i) {
+      }) : flaggedSpan(st[target])])]), (0, _mithril.default)('div.dropdown-menu[role=menu]', {
+        style: 'width: 100%'
+      }, [(0, _mithril.default)('div.dropdown-content', {
+        style: 'width: 100%; height: 300px; overflow-y:auto'
+      }, this.opts.map(function (x, i) {
         return (0, _mithril.default)('a.dropdown-item[href=#]', {
           onclick: function onclick() {
             return _this2.select(x, i);
           }
-        }, x);
-      }))])])]);
+        }, flaggedSpan(x));
+      }))])])])])]);
     }
   };
+}
+
+function getPair(y, x) {
+  return x.split('/')[y * 1];
+}
+
+function tp(x) {
+  return getPair(false, x);
+}
+
+function bt(x) {
+  return getPair(true, x);
 }
 
 var st = {
@@ -2388,11 +2642,11 @@ var st = {
   conv: "USD/EUR",
 
   get tp() {
-    return this.conv.split('/')[0];
+    return tp(this.conv);
   },
 
   get bt() {
-    return this.conv.split('/')[1];
+    return bt(this.conv);
   },
 
   size: 10000,
@@ -2404,6 +2658,11 @@ var st = {
         tp = this.tp,
         acc = this.acc,
         list = this.list;
+
+    if (!list.length) {
+      return "loading";
+    }
+
     var pip = 0.0001;
     var isBT = bt == acc,
         isTP = tp == acc,
@@ -2425,10 +2684,10 @@ var st = {
 
     if (bt == "JPY") {
       res = res * 100;
-    }
+    } // res = Math.round(res * 10000) / 10000
 
-    res = Math.round(res * 10000) / 10000;
-    return res;
+
+    return res.toFixed(4) * 1;
   },
 
   get curConv() {
@@ -2440,7 +2699,8 @@ var st = {
 
     if (!list.length) {
       return "loading";
-    }
+    } // console.log(bt)
+
 
     var res = list.filter(function (x) {
       return x.base == acc;
@@ -2474,14 +2734,6 @@ var st = {
 
       _mithril.default.redraw();
     });
-  },
-  save: function save() {
-    return _mithril.default.request({
-      method: "PUT",
-      url: "https://rem-rest-api.herokuapp.com/api/users/" + st.current.id,
-      body: st.current,
-      withCredentials: false
-    });
   }
 };
 exports.st = st;
@@ -2489,7 +2741,7 @@ window.a = st;
 var Pip = {
   oninit: st.loadList,
   view: function view() {
-    return (0, _mithril.default)("div", [(0, _mithril.default)(dropdown, {
+    return (0, _mithril.default)("div.brand-background", [(0, _mithril.default)(dropdown, {
       label: "Account Currency:",
       target: "acc",
       opts: currenciesList
@@ -2501,19 +2753,22 @@ var Pip = {
       label: "Trade Size (In units):",
       target: "size"
     }), field({
-      label: "Current Conversion Price: (USD/USD):",
-      text: 1,
+      label: "Current Conversion Price: (".concat(st.acc + '/' + st.bt, "):"),
+      text: true,
       target: "curConv"
     }), field({
       label: "PIP:",
-      text: 1,
+      text: true,
       target: "pip"
-    }), (0, _mithril.default)('div', JSON.stringify(st.list) + "sdf")]);
+    }), (0, _mithril.default)('p', [(0, _mithril.default)('span', "Made by:"), (0, _mithril.default)('img', {
+      style: 'filter: contrast(0)',
+      src: 'https://www.eaglefx.com/wp-content/uploads/2019/07/logo_eagle2.png'
+    })])]);
   }
-};
+}; // m.mount(document.querySelector('.root'), Pip);
 
 _mithril.default.mount(document.body, Pip);
-},{"mithril":"node_modules/mithril/index.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"mithril":"node_modules/mithril/index.js","./curToFlag":"curToFlag.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -2541,7 +2796,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49290" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54422" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

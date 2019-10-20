@@ -1,12 +1,9 @@
+make the event bubble, or not redraw to then see if the other event will fire
+on-hover change value
+drop down icon fa-fas
+make dropdown menu full width
+test autocomplete on mobile
 
-
-put flags into dropdown
-go through ux checklist for autocomplete components, and test on chrome
-failing test case
-show correct exchange rate for pip, show two
-    rates in different account, by using split
-    inputs
-make autocomplete with search
 ask if numbers should round
 ask if jpy should multiply to .01 if bottom or account is used
 make custom elements
@@ -14,30 +11,20 @@ make styles scoped to custom elements, while making sure to use
     reusable components so that styles dont get duplicated
 make state within function scopes
 query symbols doesnt work, all rates are sent: https://exchangeratesapi.io/
+go through ux checklist for autocomplete components, and test on chrome,
+    also see if up arrow and down arrow could be implemented
 
-<div class="field is-horizontal">
-  <div class="field-label is-normal">
-    <label class="label">From</label>
-  </div>
-  <div class="field-body">
-    <div class="field">
-      <p class="control is-expanded has-icons-left">
-        <input class="input" type="text" placeholder="Name">
-        <span class="icon is-small is-left">
-          <i class="fas fa-user"></i>
-        </span>
-      </p>
-    </div>
-    <div class="field">
-      <p class="control is-expanded has-icons-left has-icons-right">
-        <input class="input is-success" type="email" placeholder="Email" value="alex@smith.com">
-        <span class="icon is-small is-left">
-          <i class="fas fa-envelope"></i>
-        </span>
-        <span class="icon is-small is-right">
-          <i class="fas fa-check"></i>
-        </span>
-      </p>
-    </div>
-  </div>
-</div>
+
+
+mention:
+
+flags are paid, freepick
+flags are not manually compiled, therefore there may be mismatch
+currency pair wierdness, is reversed in example, top is sold
+all currency combinations are included
+
+
+suggest: 
+
+show two rates in different account, by using split
+    inputs

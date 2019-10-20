@@ -1,0 +1,1565 @@
+.flag-icon-background {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+.flag-icon {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  width: 1.33333333em;
+  line-height: 1em;
+}
+.flag-icon:before {
+  content: "\00a0";
+}
+.flag-icon.flag-icon-squared {
+  width: 1em;
+}
+.flag-icon-ad {
+  background-image: url(/ad.20998e63.svg);
+}
+.flag-icon-ad.flag-icon-squared {
+  background-image: url(/ad.946ce3c4.svg);
+}
+.flag-icon-ae {
+  background-image: url(/ae.289c118d.svg);
+}
+.flag-icon-ae.flag-icon-squared {
+  background-image: url(/ae.ea16364b.svg);
+}
+.flag-icon-af {
+  background-image: url(/af.d092c6f5.svg);
+}
+.flag-icon-af.flag-icon-squared {
+  background-image: url(/af.101af1f5.svg);
+}
+.flag-icon-ag {
+  background-image: url(/ag.de8fbbcb.svg);
+}
+.flag-icon-ag.flag-icon-squared {
+  background-image: url(/ag.a8cc7298.svg);
+}
+.flag-icon-ai {
+  background-image: url(/ai.e11571cb.svg);
+}
+.flag-icon-ai.flag-icon-squared {
+  background-image: url(/ai.a8c5fade.svg);
+}
+.flag-icon-al {
+  background-image: url(/al.cd9fda9e.svg);
+}
+.flag-icon-al.flag-icon-squared {
+  background-image: url(/al.8da02a9a.svg);
+}
+.flag-icon-am {
+  background-image: url(/am.4f654f81.svg);
+}
+.flag-icon-am.flag-icon-squared {
+  background-image: url(/am.d349b9ee.svg);
+}
+.flag-icon-ao {
+  background-image: url(/ao.023271dd.svg);
+}
+.flag-icon-ao.flag-icon-squared {
+  background-image: url(/ao.18e5490f.svg);
+}
+.flag-icon-aq {
+  background-image: url(/aq.78e28359.svg);
+}
+.flag-icon-aq.flag-icon-squared {
+  background-image: url(/aq.c9038e71.svg);
+}
+.flag-icon-ar {
+  background-image: url(/ar.593ac866.svg);
+}
+.flag-icon-ar.flag-icon-squared {
+  background-image: url(/ar.5dcb6a39.svg);
+}
+.flag-icon-as {
+  background-image: url(/as.63275d03.svg);
+}
+.flag-icon-as.flag-icon-squared {
+  background-image: url(/as.0f20e274.svg);
+}
+.flag-icon-at {
+  background-image: url(/at.2c8ed07e.svg);
+}
+.flag-icon-at.flag-icon-squared {
+  background-image: url(/at.64e4249a.svg);
+}
+.flag-icon-au {
+  background-image: url(/au.b0b4a01a.svg);
+}
+.flag-icon-au.flag-icon-squared {
+  background-image: url(/au.3a05755c.svg);
+}
+.flag-icon-aw {
+  background-image: url(/aw.0be47282.svg);
+}
+.flag-icon-aw.flag-icon-squared {
+  background-image: url(/aw.e140ba39.svg);
+}
+.flag-icon-ax {
+  background-image: url(/ax.2eb5000e.svg);
+}
+.flag-icon-ax.flag-icon-squared {
+  background-image: url(/ax.035b2539.svg);
+}
+.flag-icon-az {
+  background-image: url(/az.1978f0ee.svg);
+}
+.flag-icon-az.flag-icon-squared {
+  background-image: url(/az.32fde2b6.svg);
+}
+.flag-icon-ba {
+  background-image: url(/ba.bf4ac6f0.svg);
+}
+.flag-icon-ba.flag-icon-squared {
+  background-image: url(/ba.e8fd6df5.svg);
+}
+.flag-icon-bb {
+  background-image: url(/bb.b86ce352.svg);
+}
+.flag-icon-bb.flag-icon-squared {
+  background-image: url(/bb.d2962547.svg);
+}
+.flag-icon-bd {
+  background-image: url(/bd.001854c0.svg);
+}
+.flag-icon-bd.flag-icon-squared {
+  background-image: url(/bd.c9f59e32.svg);
+}
+.flag-icon-be {
+  background-image: url(/be.d02c5211.svg);
+}
+.flag-icon-be.flag-icon-squared {
+  background-image: url(/be.ce95a2b9.svg);
+}
+.flag-icon-bf {
+  background-image: url(/bf.022507cf.svg);
+}
+.flag-icon-bf.flag-icon-squared {
+  background-image: url(/bf.b081ef3b.svg);
+}
+.flag-icon-bg {
+  background-image: url(/bg.d560e87e.svg);
+}
+.flag-icon-bg.flag-icon-squared {
+  background-image: url(/bg.0cab16f0.svg);
+}
+.flag-icon-bh {
+  background-image: url(/bh.7ff9a966.svg);
+}
+.flag-icon-bh.flag-icon-squared {
+  background-image: url(/bh.650828b4.svg);
+}
+.flag-icon-bi {
+  background-image: url(/bi.27383dbf.svg);
+}
+.flag-icon-bi.flag-icon-squared {
+  background-image: url(/bi.5818f814.svg);
+}
+.flag-icon-bj {
+  background-image: url(/bj.d640e5a0.svg);
+}
+.flag-icon-bj.flag-icon-squared {
+  background-image: url(/bj.0a0972c5.svg);
+}
+.flag-icon-bl {
+  background-image: url(/bl.bb854ec8.svg);
+}
+.flag-icon-bl.flag-icon-squared {
+  background-image: url(/bl.89ea3004.svg);
+}
+.flag-icon-bm {
+  background-image: url(/bm.343c88b4.svg);
+}
+.flag-icon-bm.flag-icon-squared {
+  background-image: url(/bm.6053b382.svg);
+}
+.flag-icon-bn {
+  background-image: url(/bn.29fee909.svg);
+}
+.flag-icon-bn.flag-icon-squared {
+  background-image: url(/bn.8f56e400.svg);
+}
+.flag-icon-bo {
+  background-image: url(/bo.96574360.svg);
+}
+.flag-icon-bo.flag-icon-squared {
+  background-image: url(/bo.fa1c6daa.svg);
+}
+.flag-icon-bq {
+  background-image: url(/bq.54f8f5a6.svg);
+}
+.flag-icon-bq.flag-icon-squared {
+  background-image: url(/bq.afa39254.svg);
+}
+.flag-icon-br {
+  background-image: url(/br.476a484c.svg);
+}
+.flag-icon-br.flag-icon-squared {
+  background-image: url(/br.c4e65374.svg);
+}
+.flag-icon-bs {
+  background-image: url(/bs.9519ad02.svg);
+}
+.flag-icon-bs.flag-icon-squared {
+  background-image: url(/bs.3c0c34c4.svg);
+}
+.flag-icon-bt {
+  background-image: url(/bt.e37d563e.svg);
+}
+.flag-icon-bt.flag-icon-squared {
+  background-image: url(/bt.2a394ded.svg);
+}
+.flag-icon-bv {
+  background-image: url(/bv.ed333662.svg);
+}
+.flag-icon-bv.flag-icon-squared {
+  background-image: url(/bv.e0c03390.svg);
+}
+.flag-icon-bw {
+  background-image: url(/bw.f539c6bd.svg);
+}
+.flag-icon-bw.flag-icon-squared {
+  background-image: url(/bw.97cbf1c7.svg);
+}
+.flag-icon-by {
+  background-image: url(/by.32344f59.svg);
+}
+.flag-icon-by.flag-icon-squared {
+  background-image: url(/by.7449c127.svg);
+}
+.flag-icon-bz {
+  background-image: url(/bz.41de74bc.svg);
+}
+.flag-icon-bz.flag-icon-squared {
+  background-image: url(/bz.354f6599.svg);
+}
+.flag-icon-ca {
+  background-image: url(/ca.635469bb.svg);
+}
+.flag-icon-ca.flag-icon-squared {
+  background-image: url(/ca.b77a80fe.svg);
+}
+.flag-icon-cc {
+  background-image: url(/cc.375b3c14.svg);
+}
+.flag-icon-cc.flag-icon-squared {
+  background-image: url(/cc.0d729c9d.svg);
+}
+.flag-icon-cd {
+  background-image: url(/cd.1ac76ae2.svg);
+}
+.flag-icon-cd.flag-icon-squared {
+  background-image: url(/cd.f49e6bb1.svg);
+}
+.flag-icon-cf {
+  background-image: url(/cf.63cab712.svg);
+}
+.flag-icon-cf.flag-icon-squared {
+  background-image: url(/cf.0f406fc2.svg);
+}
+.flag-icon-cg {
+  background-image: url(/cg.21976ec5.svg);
+}
+.flag-icon-cg.flag-icon-squared {
+  background-image: url(/cg.b193571b.svg);
+}
+.flag-icon-ch {
+  background-image: url(/ch.c8c908bf.svg);
+}
+.flag-icon-ch.flag-icon-squared {
+  background-image: url(/ch.a01a5cf9.svg);
+}
+.flag-icon-ci {
+  background-image: url(/ci.8828b28e.svg);
+}
+.flag-icon-ci.flag-icon-squared {
+  background-image: url(/ci.31a60641.svg);
+}
+.flag-icon-ck {
+  background-image: url(/ck.3568031a.svg);
+}
+.flag-icon-ck.flag-icon-squared {
+  background-image: url(/ck.2a3e09bb.svg);
+}
+.flag-icon-cl {
+  background-image: url(/cl.ea10d4c7.svg);
+}
+.flag-icon-cl.flag-icon-squared {
+  background-image: url(/cl.a22fc9ab.svg);
+}
+.flag-icon-cm {
+  background-image: url(/cm.a1406051.svg);
+}
+.flag-icon-cm.flag-icon-squared {
+  background-image: url(/cm.83051840.svg);
+}
+.flag-icon-cn {
+  background-image: url(/cn.5ca3a804.svg);
+}
+.flag-icon-cn.flag-icon-squared {
+  background-image: url(/cn.037de262.svg);
+}
+.flag-icon-co {
+  background-image: url(/co.8d25f23f.svg);
+}
+.flag-icon-co.flag-icon-squared {
+  background-image: url(/co.5240b087.svg);
+}
+.flag-icon-cr {
+  background-image: url(/cr.7bbc91ca.svg);
+}
+.flag-icon-cr.flag-icon-squared {
+  background-image: url(/cr.9c9992d2.svg);
+}
+.flag-icon-cu {
+  background-image: url(/cu.819d16f4.svg);
+}
+.flag-icon-cu.flag-icon-squared {
+  background-image: url(/cu.be5a7f15.svg);
+}
+.flag-icon-cv {
+  background-image: url(/cv.5d5cba27.svg);
+}
+.flag-icon-cv.flag-icon-squared {
+  background-image: url(/cv.3b2f958e.svg);
+}
+.flag-icon-cw {
+  background-image: url(/cw.f71397f5.svg);
+}
+.flag-icon-cw.flag-icon-squared {
+  background-image: url(/cw.4d2c3de8.svg);
+}
+.flag-icon-cx {
+  background-image: url(/cx.f194249d.svg);
+}
+.flag-icon-cx.flag-icon-squared {
+  background-image: url(/cx.21b151cc.svg);
+}
+.flag-icon-cy {
+  background-image: url(/cy.0a71df59.svg);
+}
+.flag-icon-cy.flag-icon-squared {
+  background-image: url(/cy.4078abb7.svg);
+}
+.flag-icon-cz {
+  background-image: url(/cz.4c1a8e39.svg);
+}
+.flag-icon-cz.flag-icon-squared {
+  background-image: url(/cz.03f10764.svg);
+}
+.flag-icon-de {
+  background-image: url(/de.156d878a.svg);
+}
+.flag-icon-de.flag-icon-squared {
+  background-image: url(/de.eecdafb9.svg);
+}
+.flag-icon-dj {
+  background-image: url(/dj.4f73b24b.svg);
+}
+.flag-icon-dj.flag-icon-squared {
+  background-image: url(/dj.89551316.svg);
+}
+.flag-icon-dk {
+  background-image: url(/dk.e03e4d53.svg);
+}
+.flag-icon-dk.flag-icon-squared {
+  background-image: url(/dk.b66d75ac.svg);
+}
+.flag-icon-dm {
+  background-image: url(/dm.195e72fe.svg);
+}
+.flag-icon-dm.flag-icon-squared {
+  background-image: url(/dm.0e42511b.svg);
+}
+.flag-icon-do {
+  background-image: url(/do.795680bc.svg);
+}
+.flag-icon-do.flag-icon-squared {
+  background-image: url(/do.e2395122.svg);
+}
+.flag-icon-dz {
+  background-image: url(/dz.390e3eaa.svg);
+}
+.flag-icon-dz.flag-icon-squared {
+  background-image: url(/dz.c6c2ea87.svg);
+}
+.flag-icon-ec {
+  background-image: url(/ec.45a556d4.svg);
+}
+.flag-icon-ec.flag-icon-squared {
+  background-image: url(/ec.c3f1cea3.svg);
+}
+.flag-icon-ee {
+  background-image: url(/ee.2c238b6f.svg);
+}
+.flag-icon-ee.flag-icon-squared {
+  background-image: url(/ee.d6aadbbc.svg);
+}
+.flag-icon-eg {
+  background-image: url(/eg.d6c60daf.svg);
+}
+.flag-icon-eg.flag-icon-squared {
+  background-image: url(/eg.c67375c0.svg);
+}
+.flag-icon-eh {
+  background-image: url(/eh.dc47c528.svg);
+}
+.flag-icon-eh.flag-icon-squared {
+  background-image: url(/eh.b901ea4f.svg);
+}
+.flag-icon-er {
+  background-image: url(/er.b3eea812.svg);
+}
+.flag-icon-er.flag-icon-squared {
+  background-image: url(/er.72e9a827.svg);
+}
+.flag-icon-es {
+  background-image: url(/es.7fb7a663.svg);
+}
+.flag-icon-es.flag-icon-squared {
+  background-image: url(/es.e7bb3e32.svg);
+}
+.flag-icon-et {
+  background-image: url(/et.beec10ee.svg);
+}
+.flag-icon-et.flag-icon-squared {
+  background-image: url(/et.6d601dbc.svg);
+}
+.flag-icon-fi {
+  background-image: url(/fi.a344001a.svg);
+}
+.flag-icon-fi.flag-icon-squared {
+  background-image: url(/fi.387eeae8.svg);
+}
+.flag-icon-fj {
+  background-image: url(/fj.8c622c9a.svg);
+}
+.flag-icon-fj.flag-icon-squared {
+  background-image: url(/fj.a137afc4.svg);
+}
+.flag-icon-fk {
+  background-image: url(/fk.60009a9d.svg);
+}
+.flag-icon-fk.flag-icon-squared {
+  background-image: url(/fk.7723e984.svg);
+}
+.flag-icon-fm {
+  background-image: url(/fm.ac9e6235.svg);
+}
+.flag-icon-fm.flag-icon-squared {
+  background-image: url(/fm.20b7d4ce.svg);
+}
+.flag-icon-fo {
+  background-image: url(/fo.457ad31a.svg);
+}
+.flag-icon-fo.flag-icon-squared {
+  background-image: url(/fo.26af878b.svg);
+}
+.flag-icon-fr {
+  background-image: url(/fr.793eb637.svg);
+}
+.flag-icon-fr.flag-icon-squared {
+  background-image: url(/fr.af4a6cab.svg);
+}
+.flag-icon-ga {
+  background-image: url(/ga.3ba7b75e.svg);
+}
+.flag-icon-ga.flag-icon-squared {
+  background-image: url(/ga.beb88f14.svg);
+}
+.flag-icon-gb {
+  background-image: url(/gb.5b63e701.svg);
+}
+.flag-icon-gb.flag-icon-squared {
+  background-image: url(/gb.ef4fec42.svg);
+}
+.flag-icon-gd {
+  background-image: url(/gd.53dd4f70.svg);
+}
+.flag-icon-gd.flag-icon-squared {
+  background-image: url(/gd.b14b4c6c.svg);
+}
+.flag-icon-ge {
+  background-image: url(/ge.beb44df7.svg);
+}
+.flag-icon-ge.flag-icon-squared {
+  background-image: url(/ge.4044565d.svg);
+}
+.flag-icon-gf {
+  background-image: url(/gf.6f6386ac.svg);
+}
+.flag-icon-gf.flag-icon-squared {
+  background-image: url(/gf.77fdde2d.svg);
+}
+.flag-icon-gg {
+  background-image: url(/gg.ed065ad0.svg);
+}
+.flag-icon-gg.flag-icon-squared {
+  background-image: url(/gg.44f44c00.svg);
+}
+.flag-icon-gh {
+  background-image: url(/gh.ccb0c415.svg);
+}
+.flag-icon-gh.flag-icon-squared {
+  background-image: url(/gh.b3c25536.svg);
+}
+.flag-icon-gi {
+  background-image: url(/gi.0436eb58.svg);
+}
+.flag-icon-gi.flag-icon-squared {
+  background-image: url(/gi.908c4abd.svg);
+}
+.flag-icon-gl {
+  background-image: url(/gl.bbee1900.svg);
+}
+.flag-icon-gl.flag-icon-squared {
+  background-image: url(/gl.06a6d683.svg);
+}
+.flag-icon-gm {
+  background-image: url(/gm.9ee76565.svg);
+}
+.flag-icon-gm.flag-icon-squared {
+  background-image: url(/gm.3888c352.svg);
+}
+.flag-icon-gn {
+  background-image: url(/gn.5cc2564c.svg);
+}
+.flag-icon-gn.flag-icon-squared {
+  background-image: url(/gn.cca3b1ae.svg);
+}
+.flag-icon-gp {
+  background-image: url(/gp.7f0141de.svg);
+}
+.flag-icon-gp.flag-icon-squared {
+  background-image: url(/gp.2bcdf8fb.svg);
+}
+.flag-icon-gq {
+  background-image: url(/gq.247d15dd.svg);
+}
+.flag-icon-gq.flag-icon-squared {
+  background-image: url(/gq.8e6c6061.svg);
+}
+.flag-icon-gr {
+  background-image: url(/gr.73ee749c.svg);
+}
+.flag-icon-gr.flag-icon-squared {
+  background-image: url(/gr.e913d6df.svg);
+}
+.flag-icon-gs {
+  background-image: url(/gs.32637143.svg);
+}
+.flag-icon-gs.flag-icon-squared {
+  background-image: url(/gs.a93f2f7f.svg);
+}
+.flag-icon-gt {
+  background-image: url(/gt.f25f03a1.svg);
+}
+.flag-icon-gt.flag-icon-squared {
+  background-image: url(/gt.c39cd741.svg);
+}
+.flag-icon-gu {
+  background-image: url(/gu.255a96f8.svg);
+}
+.flag-icon-gu.flag-icon-squared {
+  background-image: url(/gu.b3eb0292.svg);
+}
+.flag-icon-gw {
+  background-image: url(/gw.07d69411.svg);
+}
+.flag-icon-gw.flag-icon-squared {
+  background-image: url(/gw.8dc10e10.svg);
+}
+.flag-icon-gy {
+  background-image: url(/gy.d6f09b42.svg);
+}
+.flag-icon-gy.flag-icon-squared {
+  background-image: url(/gy.e3b87aee.svg);
+}
+.flag-icon-hk {
+  background-image: url(/hk.2bda6e8a.svg);
+}
+.flag-icon-hk.flag-icon-squared {
+  background-image: url(/hk.2761bcae.svg);
+}
+.flag-icon-hm {
+  background-image: url(/hm.bcf860b4.svg);
+}
+.flag-icon-hm.flag-icon-squared {
+  background-image: url(/hm.054dbac2.svg);
+}
+.flag-icon-hn {
+  background-image: url(/hn.a489dfa2.svg);
+}
+.flag-icon-hn.flag-icon-squared {
+  background-image: url(/hn.4f684b14.svg);
+}
+.flag-icon-hr {
+  background-image: url(/hr.02f960c1.svg);
+}
+.flag-icon-hr.flag-icon-squared {
+  background-image: url(/hr.99c9683e.svg);
+}
+.flag-icon-ht {
+  background-image: url(/ht.09f6ab78.svg);
+}
+.flag-icon-ht.flag-icon-squared {
+  background-image: url(/ht.04943cd5.svg);
+}
+.flag-icon-hu {
+  background-image: url(/hu.807da6a7.svg);
+}
+.flag-icon-hu.flag-icon-squared {
+  background-image: url(/hu.8517cf16.svg);
+}
+.flag-icon-id {
+  background-image: url(/id.32f5ae0c.svg);
+}
+.flag-icon-id.flag-icon-squared {
+  background-image: url(/id.4c511e4e.svg);
+}
+.flag-icon-ie {
+  background-image: url(/ie.fcf8a10e.svg);
+}
+.flag-icon-ie.flag-icon-squared {
+  background-image: url(/ie.4af77cbb.svg);
+}
+.flag-icon-il {
+  background-image: url(/il.45f76933.svg);
+}
+.flag-icon-il.flag-icon-squared {
+  background-image: url(/il.3d43fc0c.svg);
+}
+.flag-icon-im {
+  background-image: url(/im.3b85384c.svg);
+}
+.flag-icon-im.flag-icon-squared {
+  background-image: url(/im.a4393c6f.svg);
+}
+.flag-icon-in {
+  background-image: url(/in.bd0151b8.svg);
+}
+.flag-icon-in.flag-icon-squared {
+  background-image: url(/in.937d7e3e.svg);
+}
+.flag-icon-io {
+  background-image: url(/io.a27f9d6e.svg);
+}
+.flag-icon-io.flag-icon-squared {
+  background-image: url(/io.c2ac6e4a.svg);
+}
+.flag-icon-iq {
+  background-image: url(/iq.1ae8f4a8.svg);
+}
+.flag-icon-iq.flag-icon-squared {
+  background-image: url(/iq.2f8671f2.svg);
+}
+.flag-icon-ir {
+  background-image: url(/ir.918ea31f.svg);
+}
+.flag-icon-ir.flag-icon-squared {
+  background-image: url(/ir.5ff5aace.svg);
+}
+.flag-icon-is {
+  background-image: url(/is.f30a8552.svg);
+}
+.flag-icon-is.flag-icon-squared {
+  background-image: url(/is.5b10d1be.svg);
+}
+.flag-icon-it {
+  background-image: url(/it.e0799ec6.svg);
+}
+.flag-icon-it.flag-icon-squared {
+  background-image: url(/it.5bf6aa79.svg);
+}
+.flag-icon-je {
+  background-image: url(/je.1335da30.svg);
+}
+.flag-icon-je.flag-icon-squared {
+  background-image: url(/je.d94def09.svg);
+}
+.flag-icon-jm {
+  background-image: url(/jm.cf71112e.svg);
+}
+.flag-icon-jm.flag-icon-squared {
+  background-image: url(/jm.b1cf026b.svg);
+}
+.flag-icon-jo {
+  background-image: url(/jo.1d37f968.svg);
+}
+.flag-icon-jo.flag-icon-squared {
+  background-image: url(/jo.db1122a0.svg);
+}
+.flag-icon-jp {
+  background-image: url(/jp.c17696ec.svg);
+}
+.flag-icon-jp.flag-icon-squared {
+  background-image: url(/jp.67e6b9fd.svg);
+}
+.flag-icon-ke {
+  background-image: url(/ke.db9eebdc.svg);
+}
+.flag-icon-ke.flag-icon-squared {
+  background-image: url(/ke.c703ff5e.svg);
+}
+.flag-icon-kg {
+  background-image: url(/kg.04bae8c4.svg);
+}
+.flag-icon-kg.flag-icon-squared {
+  background-image: url(/kg.831c973e.svg);
+}
+.flag-icon-kh {
+  background-image: url(/kh.0e227cef.svg);
+}
+.flag-icon-kh.flag-icon-squared {
+  background-image: url(/kh.285e7001.svg);
+}
+.flag-icon-ki {
+  background-image: url(/ki.f0690492.svg);
+}
+.flag-icon-ki.flag-icon-squared {
+  background-image: url(/ki.8dc1c744.svg);
+}
+.flag-icon-km {
+  background-image: url(/km.d5d72c54.svg);
+}
+.flag-icon-km.flag-icon-squared {
+  background-image: url(/km.afd19a87.svg);
+}
+.flag-icon-kn {
+  background-image: url(/kn.6ceaa3a3.svg);
+}
+.flag-icon-kn.flag-icon-squared {
+  background-image: url(/kn.cb9e7ca8.svg);
+}
+.flag-icon-kp {
+  background-image: url(/kp.5b593c31.svg);
+}
+.flag-icon-kp.flag-icon-squared {
+  background-image: url(/kp.3c2a00e7.svg);
+}
+.flag-icon-kr {
+  background-image: url(/kr.5b283d58.svg);
+}
+.flag-icon-kr.flag-icon-squared {
+  background-image: url(/kr.bdb03295.svg);
+}
+.flag-icon-kw {
+  background-image: url(/kw.2d241e32.svg);
+}
+.flag-icon-kw.flag-icon-squared {
+  background-image: url(/kw.ad671d32.svg);
+}
+.flag-icon-ky {
+  background-image: url(/ky.aeeb1bc1.svg);
+}
+.flag-icon-ky.flag-icon-squared {
+  background-image: url(/ky.cb413dcd.svg);
+}
+.flag-icon-kz {
+  background-image: url(/kz.a77f9f3d.svg);
+}
+.flag-icon-kz.flag-icon-squared {
+  background-image: url(/kz.a4a5ec6a.svg);
+}
+.flag-icon-la {
+  background-image: url(/la.b5cfb6ab.svg);
+}
+.flag-icon-la.flag-icon-squared {
+  background-image: url(/la.391741e1.svg);
+}
+.flag-icon-lb {
+  background-image: url(/lb.52d6e519.svg);
+}
+.flag-icon-lb.flag-icon-squared {
+  background-image: url(/lb.157a8529.svg);
+}
+.flag-icon-lc {
+  background-image: url(/lc.0d38bf34.svg);
+}
+.flag-icon-lc.flag-icon-squared {
+  background-image: url(/lc.9085ea46.svg);
+}
+.flag-icon-li {
+  background-image: url(/li.27746785.svg);
+}
+.flag-icon-li.flag-icon-squared {
+  background-image: url(/li.5086d45f.svg);
+}
+.flag-icon-lk {
+  background-image: url(/lk.6558d7de.svg);
+}
+.flag-icon-lk.flag-icon-squared {
+  background-image: url(/lk.8a9e4ddb.svg);
+}
+.flag-icon-lr {
+  background-image: url(/lr.c5140d54.svg);
+}
+.flag-icon-lr.flag-icon-squared {
+  background-image: url(/lr.b247c509.svg);
+}
+.flag-icon-ls {
+  background-image: url(/ls.17001acd.svg);
+}
+.flag-icon-ls.flag-icon-squared {
+  background-image: url(/ls.577fef02.svg);
+}
+.flag-icon-lt {
+  background-image: url(/lt.8c807f10.svg);
+}
+.flag-icon-lt.flag-icon-squared {
+  background-image: url(/lt.2262a209.svg);
+}
+.flag-icon-lu {
+  background-image: url(/lu.bb55e4d2.svg);
+}
+.flag-icon-lu.flag-icon-squared {
+  background-image: url(/lu.fdde407f.svg);
+}
+.flag-icon-lv {
+  background-image: url(/lv.ce1d26c8.svg);
+}
+.flag-icon-lv.flag-icon-squared {
+  background-image: url(/lv.03e29adc.svg);
+}
+.flag-icon-ly {
+  background-image: url(/ly.6047e956.svg);
+}
+.flag-icon-ly.flag-icon-squared {
+  background-image: url(/ly.b3e45107.svg);
+}
+.flag-icon-ma {
+  background-image: url(/ma.250ecf15.svg);
+}
+.flag-icon-ma.flag-icon-squared {
+  background-image: url(/ma.bb40df6a.svg);
+}
+.flag-icon-mc {
+  background-image: url(/mc.f3b23e88.svg);
+}
+.flag-icon-mc.flag-icon-squared {
+  background-image: url(/mc.b82bb7b3.svg);
+}
+.flag-icon-md {
+  background-image: url(/md.31964bde.svg);
+}
+.flag-icon-md.flag-icon-squared {
+  background-image: url(/md.376cc131.svg);
+}
+.flag-icon-me {
+  background-image: url(/me.df64d144.svg);
+}
+.flag-icon-me.flag-icon-squared {
+  background-image: url(/me.7e509caa.svg);
+}
+.flag-icon-mf {
+  background-image: url(/mf.12f5f21a.svg);
+}
+.flag-icon-mf.flag-icon-squared {
+  background-image: url(/mf.3175939b.svg);
+}
+.flag-icon-mg {
+  background-image: url(/mg.b9fa3c72.svg);
+}
+.flag-icon-mg.flag-icon-squared {
+  background-image: url(/mg.210713a3.svg);
+}
+.flag-icon-mh {
+  background-image: url(/mh.66f2d296.svg);
+}
+.flag-icon-mh.flag-icon-squared {
+  background-image: url(/mh.f7189444.svg);
+}
+.flag-icon-mk {
+  background-image: url(/mk.f0cff7fe.svg);
+}
+.flag-icon-mk.flag-icon-squared {
+  background-image: url(/mk.a3c45c99.svg);
+}
+.flag-icon-ml {
+  background-image: url(/ml.ff79a3ed.svg);
+}
+.flag-icon-ml.flag-icon-squared {
+  background-image: url(/ml.65a9a9c1.svg);
+}
+.flag-icon-mm {
+  background-image: url(/mm.26002e23.svg);
+}
+.flag-icon-mm.flag-icon-squared {
+  background-image: url(/mm.82ddedf4.svg);
+}
+.flag-icon-mn {
+  background-image: url(/mn.fc9588b8.svg);
+}
+.flag-icon-mn.flag-icon-squared {
+  background-image: url(/mn.fa7d7d21.svg);
+}
+.flag-icon-mo {
+  background-image: url(/mo.3af01a7e.svg);
+}
+.flag-icon-mo.flag-icon-squared {
+  background-image: url(/mo.52c7cb45.svg);
+}
+.flag-icon-mp {
+  background-image: url(/mp.a8dbdcda.svg);
+}
+.flag-icon-mp.flag-icon-squared {
+  background-image: url(/mp.7a2812bf.svg);
+}
+.flag-icon-mq {
+  background-image: url(/mq.42dd8ade.svg);
+}
+.flag-icon-mq.flag-icon-squared {
+  background-image: url(/mq.73fb8247.svg);
+}
+.flag-icon-mr {
+  background-image: url(/mr.ec97632d.svg);
+}
+.flag-icon-mr.flag-icon-squared {
+  background-image: url(/mr.d4150721.svg);
+}
+.flag-icon-ms {
+  background-image: url(/ms.ea530964.svg);
+}
+.flag-icon-ms.flag-icon-squared {
+  background-image: url(/ms.e6070120.svg);
+}
+.flag-icon-mt {
+  background-image: url(/mt.f04d75e3.svg);
+}
+.flag-icon-mt.flag-icon-squared {
+  background-image: url(/mt.7f35140b.svg);
+}
+.flag-icon-mu {
+  background-image: url(/mu.da1f982f.svg);
+}
+.flag-icon-mu.flag-icon-squared {
+  background-image: url(/mu.44450a97.svg);
+}
+.flag-icon-mv {
+  background-image: url(/mv.ef25e2ea.svg);
+}
+.flag-icon-mv.flag-icon-squared {
+  background-image: url(/mv.c0fd2486.svg);
+}
+.flag-icon-mw {
+  background-image: url(/mw.4c0f9a51.svg);
+}
+.flag-icon-mw.flag-icon-squared {
+  background-image: url(/mw.5277e7f0.svg);
+}
+.flag-icon-mx {
+  background-image: url(/mx.b34b8c8b.svg);
+}
+.flag-icon-mx.flag-icon-squared {
+  background-image: url(/mx.9c6c2696.svg);
+}
+.flag-icon-my {
+  background-image: url(/my.4381ad9a.svg);
+}
+.flag-icon-my.flag-icon-squared {
+  background-image: url(/my.c4513f65.svg);
+}
+.flag-icon-mz {
+  background-image: url(/mz.2a83e435.svg);
+}
+.flag-icon-mz.flag-icon-squared {
+  background-image: url(/mz.bc757fcc.svg);
+}
+.flag-icon-na {
+  background-image: url(/na.c8834ccc.svg);
+}
+.flag-icon-na.flag-icon-squared {
+  background-image: url(/na.e1d766de.svg);
+}
+.flag-icon-nc {
+  background-image: url(/nc.063d5573.svg);
+}
+.flag-icon-nc.flag-icon-squared {
+  background-image: url(/nc.9cd744b3.svg);
+}
+.flag-icon-ne {
+  background-image: url(/ne.4af85e58.svg);
+}
+.flag-icon-ne.flag-icon-squared {
+  background-image: url(/ne.bc3cca80.svg);
+}
+.flag-icon-nf {
+  background-image: url(/nf.c188159b.svg);
+}
+.flag-icon-nf.flag-icon-squared {
+  background-image: url(/nf.2198af24.svg);
+}
+.flag-icon-ng {
+  background-image: url(/ng.c92863cd.svg);
+}
+.flag-icon-ng.flag-icon-squared {
+  background-image: url(/ng.7911634b.svg);
+}
+.flag-icon-ni {
+  background-image: url(/ni.c4dda953.svg);
+}
+.flag-icon-ni.flag-icon-squared {
+  background-image: url(/ni.d1549f0b.svg);
+}
+.flag-icon-nl {
+  background-image: url(/nl.785b1e7b.svg);
+}
+.flag-icon-nl.flag-icon-squared {
+  background-image: url(/nl.864ebf29.svg);
+}
+.flag-icon-no {
+  background-image: url(/no.95b5becf.svg);
+}
+.flag-icon-no.flag-icon-squared {
+  background-image: url(/no.16e652aa.svg);
+}
+.flag-icon-np {
+  background-image: url(/np.1aefe7a5.svg);
+}
+.flag-icon-np.flag-icon-squared {
+  background-image: url(/np.52bf5f58.svg);
+}
+.flag-icon-nr {
+  background-image: url(/nr.c7b76780.svg);
+}
+.flag-icon-nr.flag-icon-squared {
+  background-image: url(/nr.c70f5f57.svg);
+}
+.flag-icon-nu {
+  background-image: url(/nu.9549faba.svg);
+}
+.flag-icon-nu.flag-icon-squared {
+  background-image: url(/nu.98c80f99.svg);
+}
+.flag-icon-nz {
+  background-image: url(/nz.2d2a5804.svg);
+}
+.flag-icon-nz.flag-icon-squared {
+  background-image: url(/nz.b4e62f26.svg);
+}
+.flag-icon-om {
+  background-image: url(/om.e2045f4e.svg);
+}
+.flag-icon-om.flag-icon-squared {
+  background-image: url(/om.a2519bbe.svg);
+}
+.flag-icon-pa {
+  background-image: url(/pa.5b4ca4fa.svg);
+}
+.flag-icon-pa.flag-icon-squared {
+  background-image: url(/pa.c5b52e53.svg);
+}
+.flag-icon-pe {
+  background-image: url(/pe.394f5288.svg);
+}
+.flag-icon-pe.flag-icon-squared {
+  background-image: url(/pe.c362f8df.svg);
+}
+.flag-icon-pf {
+  background-image: url(/pf.2f18fd00.svg);
+}
+.flag-icon-pf.flag-icon-squared {
+  background-image: url(/pf.9370ce47.svg);
+}
+.flag-icon-pg {
+  background-image: url(/pg.bdd931ab.svg);
+}
+.flag-icon-pg.flag-icon-squared {
+  background-image: url(/pg.cf3b4cb7.svg);
+}
+.flag-icon-ph {
+  background-image: url(/ph.657a69cc.svg);
+}
+.flag-icon-ph.flag-icon-squared {
+  background-image: url(/ph.3b8ad3db.svg);
+}
+.flag-icon-pk {
+  background-image: url(/pk.f0ec9163.svg);
+}
+.flag-icon-pk.flag-icon-squared {
+  background-image: url(/pk.2ed368d6.svg);
+}
+.flag-icon-pl {
+  background-image: url(/pl.a861d09e.svg);
+}
+.flag-icon-pl.flag-icon-squared {
+  background-image: url(/pl.ddd1b5c1.svg);
+}
+.flag-icon-pm {
+  background-image: url(/pm.5b31a575.svg);
+}
+.flag-icon-pm.flag-icon-squared {
+  background-image: url(/pm.170b81c3.svg);
+}
+.flag-icon-pn {
+  background-image: url(/pn.07d3264b.svg);
+}
+.flag-icon-pn.flag-icon-squared {
+  background-image: url(/pn.21a3608b.svg);
+}
+.flag-icon-pr {
+  background-image: url(/pr.8f3c07e0.svg);
+}
+.flag-icon-pr.flag-icon-squared {
+  background-image: url(/pr.21c9a8fc.svg);
+}
+.flag-icon-ps {
+  background-image: url(/ps.fc4da6c0.svg);
+}
+.flag-icon-ps.flag-icon-squared {
+  background-image: url(/ps.77ab62f7.svg);
+}
+.flag-icon-pt {
+  background-image: url(/pt.6ba0e075.svg);
+}
+.flag-icon-pt.flag-icon-squared {
+  background-image: url(/pt.b348382a.svg);
+}
+.flag-icon-pw {
+  background-image: url(/pw.540b7590.svg);
+}
+.flag-icon-pw.flag-icon-squared {
+  background-image: url(/pw.059dc107.svg);
+}
+.flag-icon-py {
+  background-image: url(/py.22cef4e8.svg);
+}
+.flag-icon-py.flag-icon-squared {
+  background-image: url(/py.dd646df9.svg);
+}
+.flag-icon-qa {
+  background-image: url(/qa.2ec40d2e.svg);
+}
+.flag-icon-qa.flag-icon-squared {
+  background-image: url(/qa.7775fb1f.svg);
+}
+.flag-icon-re {
+  background-image: url(/re.2cc66d51.svg);
+}
+.flag-icon-re.flag-icon-squared {
+  background-image: url(/re.3e5661b5.svg);
+}
+.flag-icon-ro {
+  background-image: url(/ro.dc2544f4.svg);
+}
+.flag-icon-ro.flag-icon-squared {
+  background-image: url(/ro.6d6490c9.svg);
+}
+.flag-icon-rs {
+  background-image: url(/rs.5b5f4399.svg);
+}
+.flag-icon-rs.flag-icon-squared {
+  background-image: url(/rs.881b742f.svg);
+}
+.flag-icon-ru {
+  background-image: url(/ru.21e35ed1.svg);
+}
+.flag-icon-ru.flag-icon-squared {
+  background-image: url(/ru.7bcb35ea.svg);
+}
+.flag-icon-rw {
+  background-image: url(/rw.c6629cb6.svg);
+}
+.flag-icon-rw.flag-icon-squared {
+  background-image: url(/rw.e793c6ba.svg);
+}
+.flag-icon-sa {
+  background-image: url(/sa.5055f77a.svg);
+}
+.flag-icon-sa.flag-icon-squared {
+  background-image: url(/sa.bfe2516c.svg);
+}
+.flag-icon-sb {
+  background-image: url(/sb.ecfc85f8.svg);
+}
+.flag-icon-sb.flag-icon-squared {
+  background-image: url(/sb.5f3536b1.svg);
+}
+.flag-icon-sc {
+  background-image: url(/sc.8d997cf0.svg);
+}
+.flag-icon-sc.flag-icon-squared {
+  background-image: url(/sc.9bd173a6.svg);
+}
+.flag-icon-sd {
+  background-image: url(/sd.6146e19d.svg);
+}
+.flag-icon-sd.flag-icon-squared {
+  background-image: url(/sd.419bc12a.svg);
+}
+.flag-icon-se {
+  background-image: url(/se.270676fb.svg);
+}
+.flag-icon-se.flag-icon-squared {
+  background-image: url(/se.809c14b1.svg);
+}
+.flag-icon-sg {
+  background-image: url(/sg.f2bbac7a.svg);
+}
+.flag-icon-sg.flag-icon-squared {
+  background-image: url(/sg.60ecdeec.svg);
+}
+.flag-icon-sh {
+  background-image: url(/sh.a7184b44.svg);
+}
+.flag-icon-sh.flag-icon-squared {
+  background-image: url(/sh.adf10c02.svg);
+}
+.flag-icon-si {
+  background-image: url(/si.5c9ff4bc.svg);
+}
+.flag-icon-si.flag-icon-squared {
+  background-image: url(/si.ccf40db2.svg);
+}
+.flag-icon-sj {
+  background-image: url(/sj.8c1e6d92.svg);
+}
+.flag-icon-sj.flag-icon-squared {
+  background-image: url(/sj.23ad854b.svg);
+}
+.flag-icon-sk {
+  background-image: url(/sk.92190327.svg);
+}
+.flag-icon-sk.flag-icon-squared {
+  background-image: url(/sk.75bacea6.svg);
+}
+.flag-icon-sl {
+  background-image: url(/sl.6b797f33.svg);
+}
+.flag-icon-sl.flag-icon-squared {
+  background-image: url(/sl.c9ec188e.svg);
+}
+.flag-icon-sm {
+  background-image: url(/sm.8b591ba5.svg);
+}
+.flag-icon-sm.flag-icon-squared {
+  background-image: url(/sm.b07d5551.svg);
+}
+.flag-icon-sn {
+  background-image: url(/sn.e7da7cd8.svg);
+}
+.flag-icon-sn.flag-icon-squared {
+  background-image: url(/sn.4dbe0c5d.svg);
+}
+.flag-icon-so {
+  background-image: url(/so.cb7aff56.svg);
+}
+.flag-icon-so.flag-icon-squared {
+  background-image: url(/so.65f02a6c.svg);
+}
+.flag-icon-sr {
+  background-image: url(/sr.cea03de9.svg);
+}
+.flag-icon-sr.flag-icon-squared {
+  background-image: url(/sr.1488e2c6.svg);
+}
+.flag-icon-ss {
+  background-image: url(/ss.2dc8be12.svg);
+}
+.flag-icon-ss.flag-icon-squared {
+  background-image: url(/ss.bbfe7ab5.svg);
+}
+.flag-icon-st {
+  background-image: url(/st.fd326f55.svg);
+}
+.flag-icon-st.flag-icon-squared {
+  background-image: url(/st.2f294fe4.svg);
+}
+.flag-icon-sv {
+  background-image: url(/sv.48d72efe.svg);
+}
+.flag-icon-sv.flag-icon-squared {
+  background-image: url(/sv.90fabd83.svg);
+}
+.flag-icon-sx {
+  background-image: url(/sx.dd62de03.svg);
+}
+.flag-icon-sx.flag-icon-squared {
+  background-image: url(/sx.ccf8176a.svg);
+}
+.flag-icon-sy {
+  background-image: url(/sy.eb8f3ec3.svg);
+}
+.flag-icon-sy.flag-icon-squared {
+  background-image: url(/sy.3d489162.svg);
+}
+.flag-icon-sz {
+  background-image: url(/sz.950b6d44.svg);
+}
+.flag-icon-sz.flag-icon-squared {
+  background-image: url(/sz.8061aa27.svg);
+}
+.flag-icon-tc {
+  background-image: url(/tc.b1a0b7d0.svg);
+}
+.flag-icon-tc.flag-icon-squared {
+  background-image: url(/tc.0b5557d3.svg);
+}
+.flag-icon-td {
+  background-image: url(/td.731a01a7.svg);
+}
+.flag-icon-td.flag-icon-squared {
+  background-image: url(/td.440e6d5b.svg);
+}
+.flag-icon-tf {
+  background-image: url(/tf.60d69222.svg);
+}
+.flag-icon-tf.flag-icon-squared {
+  background-image: url(/tf.2f3db758.svg);
+}
+.flag-icon-tg {
+  background-image: url(/tg.5eb79cba.svg);
+}
+.flag-icon-tg.flag-icon-squared {
+  background-image: url(/tg.0e46c120.svg);
+}
+.flag-icon-th {
+  background-image: url(/th.41844a60.svg);
+}
+.flag-icon-th.flag-icon-squared {
+  background-image: url(/th.ff91114a.svg);
+}
+.flag-icon-tj {
+  background-image: url(/tj.6ad6f2bc.svg);
+}
+.flag-icon-tj.flag-icon-squared {
+  background-image: url(/tj.d63b3721.svg);
+}
+.flag-icon-tk {
+  background-image: url(/tk.c7c98e43.svg);
+}
+.flag-icon-tk.flag-icon-squared {
+  background-image: url(/tk.ec18aa7e.svg);
+}
+.flag-icon-tl {
+  background-image: url(/tl.3b724a88.svg);
+}
+.flag-icon-tl.flag-icon-squared {
+  background-image: url(/tl.9eae8e11.svg);
+}
+.flag-icon-tm {
+  background-image: url(/tm.e93b4715.svg);
+}
+.flag-icon-tm.flag-icon-squared {
+  background-image: url(/tm.7ccfeb95.svg);
+}
+.flag-icon-tn {
+  background-image: url(/tn.dff32883.svg);
+}
+.flag-icon-tn.flag-icon-squared {
+  background-image: url(/tn.70503ac6.svg);
+}
+.flag-icon-to {
+  background-image: url(/to.d0d9eabf.svg);
+}
+.flag-icon-to.flag-icon-squared {
+  background-image: url(/to.fc771496.svg);
+}
+.flag-icon-tr {
+  background-image: url(/tr.25b2d41a.svg);
+}
+.flag-icon-tr.flag-icon-squared {
+  background-image: url(/tr.5d2c0fa0.svg);
+}
+.flag-icon-tt {
+  background-image: url(/tt.3acade84.svg);
+}
+.flag-icon-tt.flag-icon-squared {
+  background-image: url(/tt.5e993edd.svg);
+}
+.flag-icon-tv {
+  background-image: url(/tv.79f7089c.svg);
+}
+.flag-icon-tv.flag-icon-squared {
+  background-image: url(/tv.0996bf60.svg);
+}
+.flag-icon-tw {
+  background-image: url(/tw.1c3f60e4.svg);
+}
+.flag-icon-tw.flag-icon-squared {
+  background-image: url(/tw.6be7516c.svg);
+}
+.flag-icon-tz {
+  background-image: url(/tz.33efc178.svg);
+}
+.flag-icon-tz.flag-icon-squared {
+  background-image: url(/tz.1e594942.svg);
+}
+.flag-icon-ua {
+  background-image: url(/ua.6fe3d1b9.svg);
+}
+.flag-icon-ua.flag-icon-squared {
+  background-image: url(/ua.dbe009c7.svg);
+}
+.flag-icon-ug {
+  background-image: url(/ug.06b044de.svg);
+}
+.flag-icon-ug.flag-icon-squared {
+  background-image: url(/ug.16ae88c9.svg);
+}
+.flag-icon-um {
+  background-image: url(/um.18b696fd.svg);
+}
+.flag-icon-um.flag-icon-squared {
+  background-image: url(/um.cefe5447.svg);
+}
+.flag-icon-us {
+  background-image: url(/us.e1ac6d83.svg);
+}
+.flag-icon-us.flag-icon-squared {
+  background-image: url(/us.af932c8c.svg);
+}
+.flag-icon-uy {
+  background-image: url(/uy.2be307b0.svg);
+}
+.flag-icon-uy.flag-icon-squared {
+  background-image: url(/uy.0dcacd2e.svg);
+}
+.flag-icon-uz {
+  background-image: url(/uz.155d90c0.svg);
+}
+.flag-icon-uz.flag-icon-squared {
+  background-image: url(/uz.edb907b7.svg);
+}
+.flag-icon-va {
+  background-image: url(/va.9148163e.svg);
+}
+.flag-icon-va.flag-icon-squared {
+  background-image: url(/va.58ffaa43.svg);
+}
+.flag-icon-vc {
+  background-image: url(/vc.609b5c3a.svg);
+}
+.flag-icon-vc.flag-icon-squared {
+  background-image: url(/vc.d4dcf595.svg);
+}
+.flag-icon-ve {
+  background-image: url(/ve.0ff3ba6f.svg);
+}
+.flag-icon-ve.flag-icon-squared {
+  background-image: url(/ve.eefef09f.svg);
+}
+.flag-icon-vg {
+  background-image: url(/vg.eaee3e10.svg);
+}
+.flag-icon-vg.flag-icon-squared {
+  background-image: url(/vg.3224e226.svg);
+}
+.flag-icon-vi {
+  background-image: url(/vi.2310cd31.svg);
+}
+.flag-icon-vi.flag-icon-squared {
+  background-image: url(/vi.4b057c9c.svg);
+}
+.flag-icon-vn {
+  background-image: url(/vn.574a5ea8.svg);
+}
+.flag-icon-vn.flag-icon-squared {
+  background-image: url(/vn.a43beff7.svg);
+}
+.flag-icon-vu {
+  background-image: url(/vu.8d76da05.svg);
+}
+.flag-icon-vu.flag-icon-squared {
+  background-image: url(/vu.b8895163.svg);
+}
+.flag-icon-wf {
+  background-image: url(/wf.9bed1364.svg);
+}
+.flag-icon-wf.flag-icon-squared {
+  background-image: url(/wf.520d4442.svg);
+}
+.flag-icon-ws {
+  background-image: url(/ws.b911bafe.svg);
+}
+.flag-icon-ws.flag-icon-squared {
+  background-image: url(/ws.4171d052.svg);
+}
+.flag-icon-ye {
+  background-image: url(/ye.1d8f073f.svg);
+}
+.flag-icon-ye.flag-icon-squared {
+  background-image: url(/ye.21b8ba06.svg);
+}
+.flag-icon-yt {
+  background-image: url(/yt.3420389c.svg);
+}
+.flag-icon-yt.flag-icon-squared {
+  background-image: url(/yt.358fc594.svg);
+}
+.flag-icon-za {
+  background-image: url(/za.ffee6e9c.svg);
+}
+.flag-icon-za.flag-icon-squared {
+  background-image: url(/za.92331d16.svg);
+}
+.flag-icon-zm {
+  background-image: url(/zm.72929cef.svg);
+}
+.flag-icon-zm.flag-icon-squared {
+  background-image: url(/zm.06312426.svg);
+}
+.flag-icon-zw {
+  background-image: url(/zw.699f86f9.svg);
+}
+.flag-icon-zw.flag-icon-squared {
+  background-image: url(/zw.50d71ff5.svg);
+}
+.flag-icon-es-ct {
+  background-image: url(/es-ct.924fb0e6.svg);
+}
+.flag-icon-es-ct.flag-icon-squared {
+  background-image: url(/es-ct.8d160267.svg);
+}
+.flag-icon-eu {
+  background-image: url(/eu.210058b4.svg);
+}
+.flag-icon-eu.flag-icon-squared {
+  background-image: url(/eu.ec6f693f.svg);
+}
+.flag-icon-gb-eng {
+  background-image: url(/gb-eng.1ef4a379.svg);
+}
+.flag-icon-gb-eng.flag-icon-squared {
+  background-image: url(/gb-eng.e684b8bb.svg);
+}
+.flag-icon-gb-nir {
+  background-image: url(/gb-nir.56110cdd.svg);
+}
+.flag-icon-gb-nir.flag-icon-squared {
+  background-image: url(/gb-nir.5b8ee8aa.svg);
+}
+.flag-icon-gb-sct {
+  background-image: url(/gb-sct.dcc0cd01.svg);
+}
+.flag-icon-gb-sct.flag-icon-squared {
+  background-image: url(/gb-sct.55fd3596.svg);
+}
+.flag-icon-gb-wls {
+  background-image: url(/gb-wls.3e5b8fa9.svg);
+}
+.flag-icon-gb-wls.flag-icon-squared {
+  background-image: url(/gb-wls.46ec8b51.svg);
+}
+.flag-icon-un {
+  background-image: url(/un.339711c4.svg);
+}
+.flag-icon-un.flag-icon-squared {
+  background-image: url(/un.594bc06d.svg);
+}
+.flag-icon-xk {
+  background-image: url(/xk.5319eb94.svg);
+}
+.flag-icon-xk.flag-icon-squared {
+  background-image: url(/xk.efc73736.svg);
+}
+
+
+/*# sourceMappingURL=/flag-icon.f5a693e0.css.map */
