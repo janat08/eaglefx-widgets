@@ -1,10 +1,9 @@
-import './typeahead'
-import m from 'mithril'
+
 const Model = {
 	animals: [
 		{ name: "Aardvark" },
 		{ name: "Bullfrog" },
-		{ name: "Camel" },
+		{ name: "Camel" }, 
 		{ name: "Dingo" },
 		{ name: "Emu" },
 		{ name: "Flounder" },
