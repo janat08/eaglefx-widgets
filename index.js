@@ -71,6 +71,9 @@ function dropdown() {
         // activate:()=>{
         //     console.log(this.activated, this)
         // },
+        oncreated: function(vd){
+          
+        },
         oninit: function ({ attrs: { label, opts, target } }) {
             this.label = label
             this.opts = opts
