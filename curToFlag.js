@@ -186,6 +186,7 @@ Object.assign(curToFlag, {
     EUR: 'EU',
     USD: 'US',
     AUD: 'AU',
+    GBP: "GB",
 })
 
 export default curToFlag

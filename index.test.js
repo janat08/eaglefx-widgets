@@ -4,7 +4,8 @@ function base (type){
     return st.list.filter(x=>x.base == type)[0]
 }
 
-beforeEach(() => {
+describe('PIP tests', ()=>{
+    beforeEach(() => {
     st.list = [
         { base: "EUR", rates: { "USD": 1.13798, JPY: 1 } },
         { base: "GBP", rates: { "USD": 1.2888, JPY: 123 } },
@@ -17,7 +18,7 @@ beforeEach(() => {
     st.acc = "USD"
 })
 
-it('uses the right exchange rate', () => {
+    it('uses the right exchange rate', () => {
     st.acc = "EUR"
     expect(st.curConv).toBe(1.13798);
     st.acc = "GBP"
@@ -85,4 +86,25 @@ it.skip("test based on the example calculator", ()=>{
     st.list[0].rates.GBP = 1.2981
     st.acc = "GBP"
     expect(st.pip.toFixed(5) * 1).toBe(0.77)
+})
+
+})
+
+
+describe('margin calculator', ()=>{
+    beforeEach(() => {
+    st.list = [
+        { base: "EUR", rates: { "USD": 1.13798, JPY: 1 } },
+        { base: "GBP", rates: { "USD": 1.2888, JPY: 123 } },
+        { base: "JPY", rates: { USD: 92.51 } },
+        { base: "USD", rates: { USD: 1, NZD: .79 } },
+        { base: "NZD", rates: { USD: .79}}
+    ]
+    st.size = 10000
+    st.conv = "EUR/USD"
+    st.acc = "USD"
+    it('base case', ()=>{
+        
+    })
+})
 })
