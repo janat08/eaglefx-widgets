@@ -93,12 +93,9 @@ function dropdown() {
                 this.input.select()
             }
             this.activate = (close) => {
-                lg('activate')
                 this.activated = !this.activated
                 this.value = obj[target]
-                if (!this.activated) {
-                    //e.target.value = e
-                } else {
+                if (this.activated) {
                     this.inIn()
                 }
                 this.opts = opts
@@ -113,16 +110,13 @@ function dropdown() {
                 }
             }
             this.select = (x, i) => {
-                lg('selec')
                 obj[target] = x
                 this.value = x
                 this.blurred()
-                //this.activate()
             }
             this.enter = x => {
                 let k = x.key
                 if (k == "Enter" || k == "Tab") {
-                    lg("enter")
                     this.select(this.opts[0])
                     return false
                 }
@@ -175,11 +169,9 @@ function dropdown() {
                                         style: 'border:none;outline:none;width=10px',
                                         oncreate: vnode => {
                                             this.input = vnode.dom;
-                                            lg(this);
                                             this.inIn()
                                         }
                                     }) : flaggedSpan(obj[target])
-
                                 ])
                             ]), m('div.dropdown-menu[role=menu]', {
                                 style: 'width: 100%'
@@ -189,7 +181,10 @@ function dropdown() {
                                     },
                                     this.opts.map((x, i) => {
                                         return m('a.dropdown-item[href=#]', {
-                                            onclick: () => this.select(x, i)
+                                            onmousedown: () => {
+                                                console.log('event');
+                                                this.select(x, i)
+                                            }
                                         }, flaggedSpan(x))
                                     })
                                 )
@@ -216,8 +211,15 @@ function bt(x) {
 
 var st = {
     list: [],
+    curConv(acc, bt) {
+        if (!st.list.length) {
+            return "loading"
+        }
+        const res = st.list.filter(x => x.base == acc)[0].rates[bt]
+        return res
+    },
     loadList: function() {
-        if (st.list.length){
+        if (st.list.length) {
             return null
         }
         const type = "USD"
@@ -247,117 +249,210 @@ var st = {
 
 window.a = st
 
-function margin(){
-    
+const MS = {
+        list: [],
+        acc: "USD",
+        conv: "USD/EUR",
+        lev: 1,
+        get list() {
+            console.log(st.list)
+            return st.list
+        },
+        get tp() {
+            return tp(this.conv)
+        },
+        get bt() {
+            return bt(this.conv)
+        },
+        size: 10000,
+        get curConv() {
+            const {
+                acc,
+                bt
+            } = this
+            return st.curConv(acc, bt)
+        },
+        get pip() {
+            const {
+                size,
+                curConv,
+                bt,
+                tp,
+                acc,
+                list
+            } = this
+            if (!list.length) {
+                return "loading"
+            }
+            let pip = 0.0001
+            let isBT = bt == acc,
+                isTP = tp == acc,
+                res = 1
+            if (isBT) {
+                res = size * pip
+            } else if (isTP) {
+                res = size * pip / curConv
+            } else {
+                const set = list.filter(x => x.base == tp)[0].rates[bt]
+                const direct = list.filter(x => x.base == tp)[0].rates[acc]
+                res = (size * pip / set) * direct
+            }
+
+            if (bt == "JPY") {
+                res = res * 100
+            }
+            return res.toFixed(4) * 1
+        }
+    }
+
+function Margin() {
+
+    return {
+        oninit: st.loadList,
+        view: function() {
+            return m("div.brand-background", [m(dropdown, {
+                label: "Account Currency:",
+                target: "acc",
+                opts: currenciesList,
+                obj: MS
+            }), m(dropdown, {
+                label: "Currency Pair:",
+                target: "conv",
+                opts: conversionsList,
+                obj: MS
+            }), field({
+                label: "Contract size:",
+                target: "size",
+                obj: MS
+            }), field({
+                label: "Leverage (1:x)",
+                target: "lev",
+                obj: MS
+            }), field({
+                label: `Current Conversion Price: (${MS.acc + '/' + MS.bt}):`,
+                text: true,
+                target: "curConv",
+                obj: MS
+            }), field({
+                label: "PIP value:",
+                text: true,
+                target: "pip",
+                obj: MS
+            }), m('p', [
+                m('span', "Made by:"), m('img', {
+                    style: 'filter: contrast(0)',
+                    src: 'https://www.eaglefx.com/wp-content/uploads/2019/07/logo_eagle2.png'
+                })
+            ]), ])
+        }
+    }
 }
+
+var PS = {
+        list: [],
+        acc: "USD",
+        conv: "USD/EUR",
+        get list() {
+            console.log(st.list)
+            return st.list
+        },
+        get tp() {
+            return tp(this.conv)
+        },
+        get bt() {
+            return bt(this.conv)
+        },
+        size: 10000,
+        get curConv() {
+            const {
+                acc,
+                bt
+            } = this
+            return st.curConv(acc, bt)
+        },
+        get pip() {
+            const {
+                size,
+                curConv,
+                bt,
+                tp,
+                acc,
+                list
+            } = this
+            if (!list.length) {
+                return "loading"
+            }
+            let pip = 0.0001
+            let isBT = bt == acc,
+                isTP = tp == acc,
+                res = 1
+            if (isBT) {
+                res = size * pip
+            } else if (isTP) {
+                res = size * pip / curConv
+            } else {
+                const set = list.filter(x => x.base == tp)[0].rates[bt]
+                const direct = list.filter(x => x.base == tp)[0].rates[acc]
+                res = (size * pip / set) * direct
+            }
+
+            if (bt == "JPY") {
+                res = res * 100
+            }
+            return res.toFixed(4) * 1
+        }
+    }
 
 function PIP() {
-    const LS =   {
-        list: [],
-    acc: "USD",
-    conv: "USD/EUR",
-    get list(){
-      return st.list  
-    },
-    get tp() {
-        return tp(this.conv)
-    },
-    get bt() {
-        return bt(this.conv)
-    },
-    size: 10000,
-    get curConv() {
-        const { list, acc, conv, bt, tp } = this
-        if (!list.length) {
-            return "loading"
-        }
 
-        const res = list.filter(x => x.base == acc)[0].rates[bt]
-        return res
-    },
-    get pip() {
-        const {
-            size,
-            curConv,
-            bt,
-            tp,
-            acc,
-            list
-        } = this
-        if (!list.length) {
-            return "loading"
+    return {
+        oninit: st.loadList,
+        view: function() {
+            return m("div.brand-background", [m(dropdown, {
+                label: "Account Currency:",
+                target: "acc",
+                opts: currenciesList,
+                obj: PS
+            }), m(dropdown, {
+                label: "Currency Pair:",
+                target: "conv",
+                opts: conversionsList,
+                obj: PS
+            }), field({
+                label: "Contract size:",
+                target: "size",
+                obj: PS
+            }), field({
+                label: `Current Conversion Price: (${PS.acc + '/' + PS.bt}):`,
+                text: true,
+                target: "curConv",
+                obj: PS
+            }), field({
+                label: "PIP value:",
+                text: true,
+                target: "pip",
+                obj: PS
+            }), m('p', [
+                m('span', "Made by:"), m('img', {
+                    style: 'filter: contrast(0)',
+                    src: 'https://www.eaglefx.com/wp-content/uploads/2019/07/logo_eagle2.png'
+                })
+            ]), ])
         }
-        let pip = 0.0001
-        let isBT = bt == acc,
-            isTP = tp == acc,
-            res = 1
-        if (isBT) {
-            res = size * pip
-        } else if (isTP) {
-            res = size * pip / st.curConv
-        } else {
-            const set = list.filter(x => x.base == tp)[0].rates[bt]
-            const direct = list.filter(x => x.base == tp)[0].rates[acc]
-            res = (size * pip / set) * direct
-        }
-
-        if (bt == "JPY") {
-            res = res * 100
-        }
-        // res = Math.round(res * 10000) / 10000
-        return res.toFixed(4) * 1
     }
 }
 
-return {
-    oninit: st.loadList,
-    view: function() {
-        return m("div.brand-background",
-            [m('div', [m(dropdown, {
-                    label: "Account Currency:",
-                    target: "acc",
-                    opts: currenciesList,
-                    obj: LS
-                }), m(dropdown, {
-                    label: "Currency Pair:",
-                    target: "conv",
-                    opts: conversionsList,
-                    obj: LS
-                }), field({
-                    label: "Contract size:",
-                    target: "size",
-                    obj: LS
-                }), field({
-                    label: `Current Conversion Price: (${st.acc + '/' + st.bt}):`,
-                    text: true,
-                    target: "curConv",
-                    obj: LS
-                }), field({
-                    label: "PIP value:",
-                    text: true,
-                    target: "pip",
-                    obj: LS
-                }), m('p', [
-                    m('span', "Made by:"), m('img', {
-                        style: 'filter: contrast(0)',
-                        src: 'https://www.eaglefx.com/wp-content/uploads/2019/07/logo_eagle2.png'
-                    })
-                ])]),
-                m('div', [
-//                    m(dropdown, {
-//                    label: "Account Currency:",
-//                    target: "acc",
-//                    opts: currenciesList
-//                    })
-                ])
-
+function all() {
+    return {
+        view: () => {
+            return m('', [
+                m(PIP),
+                m(Margin)
             ])
+        }
     }
-}
 }
 // m.mount(document.querySelector('.root'), Pip);
-m.mount(document.body, PIP);
+m.mount(document.body, all);
 
-export {
-    st
-}
+export {st, MS, PS}
