@@ -1,11 +1,7 @@
-make the event bubble, or not redraw to then see if the other event will fire
-on-hover change value
 drop down icon fa-fas
-make dropdown menu full width
 test autocomplete on mobile
 
 ask if numbers should round
-ask if jpy should multiply to .01 if bottom or account is used
 make custom elements
 make styles scoped to custom elements, while making sure to use 
     reusable components so that styles dont get duplicated

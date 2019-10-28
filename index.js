@@ -1,3 +1,4 @@
+/*eslint-disable semi, semi*/
 import m from "mithril";
 import curToFlag from './curToFlag'
 
@@ -574,6 +575,20 @@ function all() {
         }
     }
 }
+
+//class PopUpInfo extends HTMLElement {
+//  constructor() {
+//    // Always call super first in constructor
+//    super();
+//    var shadow = this.attachShadow({mode: 'open'});
+//    var wrapper = document.createElement('span');
+//    wrapper.setAttribute('class','wrapper');
+//    shadow.appendChild(wrapper)
+//    m.mount(document.querySelector('.wrapper'), all)
+//    console.log(document)
+//  }
+//}
+
 if(process.env.NODE_ENV !== 'test'){
  m.mount(document.querySelector('.root'), all);
 }
