@@ -184,6 +184,25 @@ function dropdown() {
     }
 }
 
+function buySellButtons({obj, label, target}){
+    const truthy = obj[target] == "buy" //true is buy
+    const control = m('div.field.is-grouped', [
+        m('.control.is-expanded', [
+            m('button.button.is-fullwidth', {
+                onclick: ()=>{obj[target] = "buy"},
+                class: truthy? "is-link is-active":"is-info"
+        }, "Buy/Long")
+        ]),
+        m('.control.is-expanded', [
+            m('button.button.is-fullwidth', {
+                onclick: ()=>{obj[target] = "sell"},
+                class: truthy? "is-info":"is-link is-active"
+        }, "Sell/Short")
+        ])
+    ])
+    return horizontalField(label, control)
+}
+
 function select ({options, target, obj, label}){
     const select = m("div.select", {style: "width:100%"}, [
                 m('select',  {style: "text-align-last: center; text-align: center; width:100%", onchange: x=>{obj[target] = x.target.value}}, options.map(x=>{
@@ -258,6 +277,85 @@ var st = {
     },
 }
 
+const PSS = {
+        acc: "USD",
+        conv: "USD/EUR",
+        close: 0,
+        open: 0,
+        period: 0,
+        size: 10000,
+        type: "buy",
+        get typeB(){
+            return this.type == "buy"
+        },
+        get curConv() {
+            const {tp, bt} = this
+            return st.curConv(tp, bt)
+        },
+        get profit() {
+            const {size, curConv, acc, bt, tp, list} = this
+            let res = 1
+            return res
+        },
+        get list() {
+            return st.list
+        },
+        get tp() {
+            return tp(this.conv)
+        },
+        get bt() {
+            return bt(this.conv)
+        },
+    }
+    
+function Profit () {
+    return {
+        oninit: st.loadList,
+        view: function() {
+            return m("div.brand-background", [m(dropdown, {
+                label: "Account Currency:",
+                target: "acc",
+                opts: currenciesList,
+                obj: PSS
+            }), m(dropdown, {
+                label: "Currency Pair:",
+                target: "conv",
+                opts: conversionsList,
+                obj: PSS
+//            }), field({
+//                label: "Period, in days:",
+//                target: "period",
+//                obj: PSS
+            }), field({
+                label: "Position size:",
+                target: "size",
+                obj: PSS
+            }), field({
+                label: "Open Price:",
+                target: "open",
+                obj: PSS
+            }), field({
+                label: "Close Price:",
+                target: "close",
+                obj: PSS
+            }), 
+            buySellButtons({obj: PSS, target: "type", label: "Position Type:"})
+            ,field({
+                label: "Profit in Account Currency",
+                text: true,
+                target: "profit",
+                obj: PSS
+            }), m('p', [
+                m('span', "Made by:"), m('img', {
+                    style: 'filter: contrast(0)',
+                    src: 'https://www.eaglefx.com/wp-content/uploads/2019/07/logo_eagle2.png'
+                })
+            ]), ])
+        }
+    }
+}
+
+
 
 
 window.a = st
@@ -265,7 +363,7 @@ const levSeed = [1, 2, 3, 5, 10, 15, 20, 25, 30, 33, 50, 66, 75, 100, 125, 150, 
 const levInputs = levSeed.map(x=>("1:"+x))
 const MS = {
         get list() {
-            console.log(st,)
+            console.log(st, 234)
             return st.list
         },
         acc: "USD",
@@ -280,19 +378,20 @@ const MS = {
         },
         get margin() {
             const {size, curConv, levV, acc, bt, tp, list} = this
+            if (!list.length) {
+                return "loading"
+            }
             let isBT = bt == acc,
                 isTP = tp == acc,
                 res = 1
             if (isBT) {
+                console.log("bottom")
                 res = size*curConv/levV
             } else {
-                console.log(tp, bt, list, st)
-                const set = list.filter(x => x.base == tp)[0].rates[bt]
-                const direct = list.filter(x => x.base == tp)[0].rates[acc]
+                const set = st.curConv(tp, bt)
+                const direct = st.curConv(tp, acc)
                 res = (size / levV / set) * direct
-                
             }
-            console.log(1213, curConv)
           return res
         },
         size: 100000,
@@ -449,12 +548,11 @@ function all() {
         view: () => {
             return m('', [
 //                m(PIP),
-                m(Margin)
+                m(Profit)
             ])
         }
     }
 }
-// m.mount(document.querySelector('.root'), Pip);
-m.mount(document.body, all);
+ m.mount(document.querySelector('.root'), all);
 
-export {st, MS, PS}
+export {st, MS, PS, PSS}

@@ -1,7 +1,8 @@
 import {
     st,
     PS,
-    MS
+    MS,
+    PSS
 } from './index.js'
 
 function base(type) {
@@ -123,8 +124,8 @@ describe('margin calculator', () => {
         st.list = [{
                 base: "EUR",
                 rates: {
-                    "USD": 1.1088,
-                    "GBP": 0.8634,
+                    "USD": 1.1091,
+                    "GBP": 0.8641,
                     JPY: 1
                 }
             },
@@ -135,13 +136,42 @@ describe('margin calculator', () => {
     })
     it('base case', () => {
             MS.lev = "1:30"
-            expect(MS.margin).toBe(3696) 
+            expect(MS.margin).toBe(3697) 
     })
-    it.only('foreign acc', () => {
+    it('foreign acc', () => {
             MS.lev = "1:30"
             MS.acc = "GBP"
-            console.log(st.list, st)
-            st.list.concat[{base: "USD", rates: {GBP: 1, EUR: 1}}, {base: "GBP", rates: {USD: 1, EUR: 1}}]
+//            st.list.concat[{base: "USD", rates: {GBP: 1, EUR: 1}}, {base: "GBP", rates: {USD: 1, EUR: 1}}]
             expect(MS.margin).toBe(2877.6667) 
+    })
+})
+
+describe('Profit calculator', () => {
+    beforeEach(() => {
+        st.list = [{
+                base: "EUR",
+                rates: {
+                    "USD": 1.1091,
+                    "GBP": 0.8641,
+                    JPY: 1
+                }
+            },
+        ]
+        PSS.size = 100000
+        PSS.conv = "EUR/USD"
+        PSS.acc = "USD"
+    })
+    it.only('base case', () => {
+            PSS.size = 10000
+            PSS.type = 'sell'
+            PSS.open = 1.35777
+            PSS.close = 1.35111
+            PSS.period = 0
+            PSS.conv = "EUR/USD"
+            PSS.acc = "EUR"
+            expect(PSS.profit).toBe(49.29) 
+    })
+    it('foreign acc', () => {
+
     })
 })
