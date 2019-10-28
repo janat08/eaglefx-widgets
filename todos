@@ -1,10 +1,7 @@
-remember to unmount
-
+fonts aren't working
 drop down icon fa-fas
 test autocomplete on mobile
-
 ask if numbers should round
-make custom elements
 make styles scoped to custom elements, while making sure to use 
     reusable components so that styles dont get duplicated
 make state within function scopes
@@ -16,16 +13,8 @@ go through ux checklist for autocomplete components, and test on chrome,
 
 mention:
 select can't be centered with css alone
-there's no example of when to invert the sign
-
-
-flags are paid, freepick
-flags are not manually compiled, therefore there may be mismatch
-currency pair wierdness, is reversed in example, top is sold
-all currency combinations are included
-
+numbers are rounded
 
 suggest: 
-
 show two rates in different account, by using split
     inputs

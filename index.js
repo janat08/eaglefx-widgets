@@ -26,14 +26,14 @@ function field({
     obj
 }) {
     const control = text ? m('span', obj[target]) : [m(`input.input[placeholder=${placeholder}]`, {
-                oninput: function(e) {
-                    obj[target] = e.target.value;
-                },
-                value: obj[target],
-                style: "text-align: center;",
-                type: 'decimal'
-            })]
-    return horizontalField(label, control)   
+        oninput: function(e) {
+            obj[target] = e.target.value;
+        },
+        value: obj[target],
+        style: "text-align: center;",
+        type: 'decimal'
+    })]
+    return horizontalField(label, control)
 }
 
 function flaggedSpan(x) {
@@ -186,35 +186,55 @@ function dropdown() {
     }
 }
 
-function buySellButtons({obj, label, target}){
+function buySellButtons({
+    obj,
+    label,
+    target
+}) {
     const truthy = obj[target] == "buy" //true is buy
     const control = m('div.field.is-grouped', [
         m('.control.is-expanded', [
             m('button.button.is-fullwidth', {
-                onclick: ()=>{obj[target] = "buy"},
-                class: truthy? "is-link is-active":"is-info"
-        }, "Buy/Long")
+                onclick: () => {
+                    obj[target] = "buy"
+                },
+                class: truthy ? "is-link is-active" : "is-info"
+            }, "Buy/Long")
         ]),
         m('.control.is-expanded', [
             m('button.button.is-fullwidth', {
-                onclick: ()=>{obj[target] = "sell"},
-                class: truthy? "is-info":"is-link is-active"
-        }, "Sell/Short")
+                onclick: () => {
+                    obj[target] = "sell"
+                },
+                class: truthy ? "is-info" : "is-link is-active"
+            }, "Sell/Short")
         ])
     ])
     return horizontalField(label, control)
 }
 
-function select ({options, target, obj, label}){
-    const select = m("div.select", {style: "width:100%"}, [
-                m('select',  {style: "text-align-last: center; text-align: center; width:100%", onchange: x=>{obj[target] = x.target.value}}, options.map(x=>{
-                    return m('option', x)
-                }))
-            ])
+function select({
+    options,
+    target,
+    obj,
+    label
+}) {
+    const select = m("div.select", {
+        style: "width:100%"
+    }, [
+        m('select', {
+            style: "text-align-last: center; text-align: center; width:100%",
+            onchange: x => {
+                obj[target] = x.target.value
+            }
+        }, options.map(x => {
+            return m('option', x)
+        }))
+    ])
     return horizontalField(label, select)
 }
 
-function horizontalField (label, control){
+function horizontalField(label, control) {
     const body = m('.field-body', [
         m('.field', [
             m("div.control", {
@@ -223,12 +243,12 @@ function horizontalField (label, control){
         ])
     ])
     const heading = m("div.field.is-horizontal", [
-            m("div.field-label", [
-                m('label.label', label)
-            ]), body
-        ])
+        m("div.field-label", [
+            m('label.label', label)
+        ]), body
+    ])
     return heading
-    
+
 }
 
 function getPair(y, x) {
@@ -250,7 +270,7 @@ var st = {
             return "loading"
         }
         const res = st.list.filter(x => x.base == acc)[0].rates[bt]
-        
+
         return res
     },
     loadList: function() {
@@ -282,56 +302,69 @@ var st = {
 }
 
 const PSS = {
-        acc: "USD",
-        conv: "USD/EUR",
-        close: 0,
-        open: 0,
-        period: 0,
-        size: 10000,
-        type: "buy",
-        get typeB(){
-            return this.type == "buy"
-        },
-        get curConv() {
-            const {tp, acc} = this
-            return st.curConv(tp, bt)
-        },
-        get profit() {
-            const {type, open, close, size, curConv, acc, bt, tp, list} = this
-            if (!list.length) {
-                return "loading"
-            }
-            let res = -((close  - open) * size)
-            const typeB = type == "buy"
-            let rate
-            let isBT = bt == acc,
-                isTP = tp == acc
-            if (isTP) {
-                rate = close
-            } else {
-                console.log(acc)
-                rate = st.curConv(bt, acc)
-            }
-            if (typeB){
-                res = -res * rate
-            } else {
-                res = res / rate
-            }
-            
-            return res.toFixed(2)*1
-        },
-        get list() {
-            return st.list
-        },
-        get tp() {
-            return tp(this.conv)
-        },
-        get bt() {
-            return bt(this.conv)
-        },
-    }
-    
-function Profit () {
+    acc: "USD",
+    conv: "USD/EUR",
+    close: 0,
+    open: 0,
+    period: 0,
+    size: 10000,
+    type: "buy",
+    get typeB() {
+        return this.type == "buy"
+    },
+    get curConv() {
+        const {
+            tp,
+            acc
+        } = this
+        return st.curConv(tp, bt)
+    },
+    get profit() {
+        const {
+            type,
+            open,
+            close,
+            size,
+            curConv,
+            acc,
+            bt,
+            tp,
+            list
+        } = this
+        if (!list.length) {
+            return "loading"
+        }
+        let res = -((close - open) * size)
+        const typeB = type == "buy"
+        let rate
+        let isBT = bt == acc,
+            isTP = tp == acc
+        if (isTP) {
+            rate = close
+        } else {
+            console.log(acc)
+            rate = st.curConv(bt, acc)
+        }
+        if (typeB) {
+            res = -res * rate
+        } else {
+            res = res / rate
+        }
+
+        return res.toFixed(2) * 1
+    },
+    get list() {
+        return st.list
+    },
+    get tp() {
+        return tp(this.conv)
+    },
+    get bt() {
+        return bt(this.conv)
+    },
+}
+
+function Profit() {
     return {
         oninit: st.loadList,
         view: function() {
@@ -345,10 +378,10 @@ function Profit () {
                 target: "conv",
                 opts: conversionsList,
                 obj: PSS
-//            }), field({
-//                label: "Period, in days:",
-//                target: "period",
-//                obj: PSS
+                //            }), field({
+                //                label: "Period, in days:",
+                //                target: "period",
+                //                obj: PSS
             }), field({
                 label: "Position size:",
                 target: "size",
@@ -361,9 +394,12 @@ function Profit () {
                 label: "Close Price:",
                 target: "close",
                 obj: PSS
-            }), buySellButtons({obj: PSS, target: "type", label: "Position Type:"})
-            ,field({
-                label: "Profit ("+PSS.acc+"):",
+            }), buySellButtons({
+                obj: PSS,
+                target: "type",
+                label: "Position Type:"
+            }), field({
+                label: "Profit (" + PSS.acc + "):",
                 text: true,
                 target: "profit",
                 obj: PSS
@@ -382,51 +418,62 @@ function Profit () {
 
 window.a = st
 const levSeed = [1, 2, 3, 5, 10, 15, 20, 25, 30, 33, 50, 66, 75, 100, 125, 150, 175, 200, 300, 400, 500]
-const levInputs = levSeed.map(x=>("1:"+x))
+const levInputs = levSeed.map(x => ("1:" + x))
 const MS = {
-        get list() {
-            console.log(st, 234)
-            return st.list
-        },
-        acc: "USD",
-        conv: "USD/EUR",
-        lev: "1:10",
-        get curConv() {
-            const {tp, acc} = this
-            return st.curConv(tp, acc)
-        },
-        get levV() {
-          return this.lev.split(":")[1]  
-        },
-        get margin() {
-            const {size, curConv, levV, acc, bt, tp, list} = this
-            if (!list.length) {
-                return "loading"
-            }
-            let isBT = bt == acc,
-                isTP = tp == acc,
-                res = 1
-            if (isBT) {
-                console.log("bottom")
-                res = size*curConv/levV
-            } else {
-                const set = st.curConv(tp, bt)
-                const direct = st.curConv(tp, acc)
-                res = (size / levV / set) * direct
-            }
-          return res
-        },
-        size: 100000,
-        get list() {
-            return st.list
-        },
-        get tp() {
-            return tp(this.conv)
-        },
-        get bt() {
-            return bt(this.conv)
-        },
-    }
+    get list() {
+        console.log(st, 234)
+        return st.list
+    },
+    acc: "USD",
+    conv: "USD/EUR",
+    lev: "1:10",
+    get curConv() {
+        const {
+            tp,
+            acc
+        } = this
+        return st.curConv(tp, acc)
+    },
+    get levV() {
+        return this.lev.split(":")[1]
+    },
+    get margin() {
+        const {
+            size,
+            curConv,
+            levV,
+            acc,
+            bt,
+            tp,
+            list
+        } = this
+        if (!list.length) {
+            return "loading"
+        }
+        let isBT = bt == acc,
+            isTP = tp == acc,
+            res = 1
+        if (isBT) {
+            console.log("bottom")
+            res = size * curConv / levV
+        } else {
+            const set = st.curConv(tp, bt)
+            const direct = st.curConv(tp, acc)
+            res = (size / levV / set) * direct
+        }
+        return res
+    },
+    size: 100000,
+    get list() {
+        return st.list
+    },
+    get tp() {
+        return tp(this.conv)
+    },
+    get bt() {
+        return bt(this.conv)
+    },
+}
 
 function Margin() {
 
@@ -458,7 +505,7 @@ function Margin() {
                 target: "curConv",
                 obj: MS
             }), field({
-                label: "Required margin (" + MS.acc +"):",
+                label: "Required margin (" + MS.acc + "):",
                 text: true,
                 target: "margin",
                 obj: MS
@@ -473,58 +520,58 @@ function Margin() {
 }
 
 var PS = {
-        list: [],
-        acc: "USD",
-        conv: "USD/EUR",
-        get list() {
-            return st.list
-        },
-        get tp() {
-            return tp(this.conv)
-        },
-        get bt() {
-            return bt(this.conv)
-        },
-        size: 10000,
-        get curConv() {
-            const {
-                acc,
-                bt
-            } = this
-            return st.curConv(acc, bt)
-        },
-        get pip() {
-            const {
-                size,
-                curConv,
-                bt,
-                tp,
-                acc,
-                list
-            } = this
-            if (!list.length) {
-                return "loading"
-            }
-            let pip = 0.0001
-            let isBT = bt == acc,
-                isTP = tp == acc,
-                res = 1
-            if (isBT) {
-                res = size * pip
-            } else if (isTP) {
-                res = size * pip / curConv
-            } else {
-                const set = list.filter(x => x.base == tp)[0].rates[bt]
-                const direct = list.filter(x => x.base == tp)[0].rates[acc]
-                res = (size * pip / set) * direct
-            }
-
-            if (bt == "JPY") {
-                res = res * 100
-            }
-            return res.toFixed(4) * 1
+    list: [],
+    acc: "USD",
+    conv: "USD/EUR",
+    get list() {
+        return st.list
+    },
+    get tp() {
+        return tp(this.conv)
+    },
+    get bt() {
+        return bt(this.conv)
+    },
+    size: 10000,
+    get curConv() {
+        const {
+            acc,
+            bt
+        } = this
+        return st.curConv(acc, bt)
+    },
+    get pip() {
+        const {
+            size,
+            curConv,
+            bt,
+            tp,
+            acc,
+            list
+        } = this
+        if (!list.length) {
+            return "loading"
         }
+        let pip = 0.0001
+        let isBT = bt == acc,
+            isTP = tp == acc,
+            res = 1
+        if (isBT) {
+            res = size * pip
+        } else if (isTP) {
+            res = size * pip / curConv
+        } else {
+            const set = list.filter(x => x.base == tp)[0].rates[bt]
+            const direct = list.filter(x => x.base == tp)[0].rates[acc]
+            res = (size * pip / set) * direct
+        }
+
+        if (bt == "JPY") {
+            res = res * 100
+        }
+        return res.toFixed(4) * 1
     }
+}
 
 function PIP() {
 
@@ -577,116 +624,75 @@ function all() {
     }
 }
 
+const styles = `input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+* {
+    text-align: center
+}`
+
+
 //customElements.define('margin-ele', marginEle);
 //
-//class widgetElements extends HTMLElement {
-//      constructor(name, type) {
-//    // Always call super first in constructor
-//    super();
-//    this.type = type
-//    this.name = name
-//    var shadow = this.attachShadow({mode: 'open'});
-//    
-//    var wrapper = document.createElement('span');
-//    wrapper.setAttribute('class','wrapper');
-//    
-//    var bulma = document.createElement('link')
-//    bulma.rel = "stylesheet"
-//    bulma.href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
-//    
-//    shadow.appendChild(bulma)
-//    shadow.appendChild(wrapper)
-//    
-//    this.wrapper = wrapper
-//  }
-//  connectedCallback() {
-//    m.mount(this.wrapper, this.type)
-//}
-//disconnectedCallback(){
-//    m.mount(this.wrapper, null)
-//}
-//}
 
+function makeWidget(name, type) {
+    customElements.define(name, class extends HTMLElement {
+        constructor() {
+            // Always call super first in constructor
+            super();
+            var shadow = this.attachShadow({
+                mode: 'open'
+            });
 
-//class marginEle extends HTMLElement {
-//  constructor() {
-//    // Always call super first in constructor
-//    super();
-//    var shadow = this.attachShadow({mode: 'open'});
-//    
-//    var wrapper = document.createElement('span');
-//    wrapper.setAttribute('class','wrapper');
-//    
-//    var bulma = document.createElement('link')
-//    bulma.rel = "stylesheet"
-//    bulma.href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
-//    
-//    shadow.appendChild(bulma)
-//    shadow.appendChild(wrapper)
-//    
-//    this.wrapper = wrapper
-//  }
-//  connectedCallback() {
-//    m.mount(this.wrapper, Margin)
-//}
-//disconnectedCallback(){
-//    m.mount(this.wrapper, null)
-//}
-//}
-//customElements.define('margin-ele', marginEle);
-//
-//class profitEle extends HTMLElement {
-//  constructor() {
-//    // Always call super first in constructor
-//    super();
-//    var shadow = this.attachShadow({mode: 'open'});
-//    
-//    var wrapper = document.createElement('span');
-//    wrapper.setAttribute('class','wrapper');
-//    
-//    var bulma = document.createElement('link')
-//    bulma.rel = "stylesheet"
-//    bulma.href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
-//    
-//    shadow.appendChild(bulma)
-//    shadow.appendChild(wrapper)
-//    
-//    this.wrapper = wrapper
-//  }
-//  connectedCallback() {
-//    m.mount(this.wrapper, Profit)
-//}
-//}
-//customElements.define('profit-ele', profitEle);
-//
-//
-//class pipEle extends HTMLElement {
-//  constructor() {
-//    // Always call super first in constructor
-//    super();
-//    var shadow = this.attachShadow({mode: 'open'});
-//    
-//    var wrapper = document.createElement('span');
-//    wrapper.setAttribute('class','wrapper');
-//    
-//    var bulma = document.createElement('link')
-//    bulma.rel = "stylesheet"
-//    bulma.href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
-//    
-//    shadow.appendChild(bulma)
-//    shadow.appendChild(wrapper)
-//    
-//    this.wrapper = wrapper
-//  }
-//  connectedCallback() {
-//    m.mount(this.wrapper, PIP)
-//}
-//}
-//customElements.define('pip-ele', pipEle);
+            var wrapper = document.createElement('span');
+            wrapper.setAttribute('class', 'wrapper');
+            
+            var style = document.createElement('style');
+            style.textContent = styles
+            
+            var bulma = document.createElement('link')
+            bulma.rel = "stylesheet"
+            bulma.href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
 
-if(process.env.NODE_ENV !== 'test'){
- m.mount(document.querySelector('.root'), all);
+            
+            shadow.appendChild(bulma)
+            shadow.appendChild(wrapper)
+            shadow.appendChild(style)
+            
+            this.wrapper = wrapper
+            this.bulma = bulma
+        }
+        connectedCallback() {
+            this.bulma.onload = ()=>{
+
+                m.mount(this.wrapper, type)
+            } 
+        }
+        disconnectedCallback() {
+            m.mount(this.wrapper, null)
+        }
+    })
+}
+
+makeWidget('margin-ele', Margin)
+makeWidget('profit-ele', Profit)
+makeWidget('pip-ele', PIP)
+
+if (process.env.NODE_ENV !== 'test') {
+//    m.mount(document.querySelector('.root'), all);
 }
 
 
-export {st, MS, PS, PSS}
+export {
+    st,
+    MS,
+    PS,
+    PSS
+}

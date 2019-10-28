@@ -105,7 +105,7 @@ describe('PIP tests all', () => {
         expect(PS.pip).toBe(7.1429)
     })
 
-    it.skip("test based on the example calculator", () => {
+    it.skip("supposedly stupid test, not applicable to widget, link above", () => {
         PS.size = 10000
         // PS.acc = "USD"
         PS.conv = "EUR/USD"
