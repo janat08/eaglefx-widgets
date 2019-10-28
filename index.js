@@ -23,27 +23,15 @@ function field({
     target,
     obj
 }) {
-    const control = m('.field-body', [
-        m('.field', [
-            m("div.control", {
-                style: "text-align: center;"
-            }, text ? m('span', obj[target]) : [m(`input.input[placeholder=${placeholder}]`, {
+    const control = text ? m('span', obj[target]) : [m(`input.input[placeholder=${placeholder}]`, {
                 oninput: function(e) {
                     obj[target] = e.target.value;
                 },
                 value: obj[target],
                 style: "text-align: center;",
                 type: 'number'
-            })])
-        ])
-    ])
-    return (
-        m("div.field.is-horizontal", [
-            m("div.field-label", [
-                m('label.label', label)
-            ]), control
-        ])
-    )
+            })]
+    return horizontalField(label, control)   
 }
 
 function flaggedSpan(x) {
@@ -197,6 +185,32 @@ function dropdown() {
     }
 }
 
+function select ({options, target, obj, label}){
+    const select = m("div.select", {style: "width:100%"}, [
+                m('select',  {style: "text-align: center; width:100%", onchange: x=>{obj[target] = x.target.value}}, options.map(x=>{
+                    return m('option', {style: "text-align: center;"}, x)
+                }))
+            ])
+    return horizontalField(label, select)
+}
+
+function horizontalField (label, control){
+    const body = m('.field-body', [
+        m('.field', [
+            m("div.control", {
+                style: "text-align: center;"
+            }, control)
+        ])
+    ])
+    const heading = m("div.field.is-horizontal", [
+            m("div.field-label", [
+                m('label.label', label)
+            ]), body
+        ])
+    return heading
+    
+}
+
 function getPair(y, x) {
     return x.split('/')[y * 1]
 }
@@ -248,14 +262,15 @@ var st = {
 
 
 window.a = st
-
+const levSeed = [1, 2, 3, 5, 10, 15, 20, 25, 30, 33, 50, 66, 75, 100, 125, 150, 175, 200, 300, 400, 500]
+const levInputs = levSeed.map(x=>("1:"+x))
 const MS = {
         list: [],
         acc: "USD",
         conv: "USD/EUR",
-        lev: 1,
+        lev: "1:10",
+        leverages: [],
         get list() {
-            console.log(st.list)
             return st.list
         },
         get tp() {
@@ -324,7 +339,8 @@ function Margin() {
                 label: "Contract size:",
                 target: "size",
                 obj: MS
-            }), field({
+            }), select({
+                options: [1,2,3],
                 label: "Leverage (1:x)",
                 target: "lev",
                 obj: MS
