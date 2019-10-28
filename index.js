@@ -170,7 +170,6 @@ function dropdown() {
                                     this.opts.map((x, i) => {
                                         return m('a.dropdown-item[href=#]', {
                                             onmousedown: () => {
-                                                console.log('event');
                                                 this.select(x, i)
                                             }
                                         }, flaggedSpan(x))
@@ -187,8 +186,8 @@ function dropdown() {
 
 function select ({options, target, obj, label}){
     const select = m("div.select", {style: "width:100%"}, [
-                m('select',  {style: "text-align: center; width:100%", onchange: x=>{obj[target] = x.target.value}}, options.map(x=>{
-                    return m('option', {style: "text-align: center;"}, x)
+                m('select',  {style: "text-align-last: center; text-align: center; width:100%", onchange: x=>{obj[target] = x.target.value}}, options.map(x=>{
+                    return m('option', x)
                 }))
             ])
     return horizontalField(label, select)
@@ -265,11 +264,38 @@ window.a = st
 const levSeed = [1, 2, 3, 5, 10, 15, 20, 25, 30, 33, 50, 66, 75, 100, 125, 150, 175, 200, 300, 400, 500]
 const levInputs = levSeed.map(x=>("1:"+x))
 const MS = {
-        list: [],
+        get list() {
+            console.log(st,)
+            return st.list
+        },
         acc: "USD",
         conv: "USD/EUR",
         lev: "1:10",
-        leverages: [],
+        get curConv() {
+            const {tp, bt} = this
+            return st.curConv(tp, bt)
+        },
+        get levV() {
+          return this.lev.split(":")[1]  
+        },
+        get margin() {
+            const {size, curConv, levV, acc, bt, tp, list} = this
+            let isBT = bt == acc,
+                isTP = tp == acc,
+                res = 1
+            if (isBT) {
+                res = size*curConv/levV
+            } else {
+                console.log(tp, bt, list, st)
+                const set = list.filter(x => x.base == tp)[0].rates[bt]
+                const direct = list.filter(x => x.base == tp)[0].rates[acc]
+                res = (size / levV / set) * direct
+                
+            }
+            console.log(1213, curConv)
+          return res
+        },
+        size: 100000,
         get list() {
             return st.list
         },
@@ -279,45 +305,6 @@ const MS = {
         get bt() {
             return bt(this.conv)
         },
-        size: 10000,
-        get curConv() {
-            const {
-                acc,
-                bt
-            } = this
-            return st.curConv(acc, bt)
-        },
-        get pip() {
-            const {
-                size,
-                curConv,
-                bt,
-                tp,
-                acc,
-                list
-            } = this
-            if (!list.length) {
-                return "loading"
-            }
-            let pip = 0.0001
-            let isBT = bt == acc,
-                isTP = tp == acc,
-                res = 1
-            if (isBT) {
-                res = size * pip
-            } else if (isTP) {
-                res = size * pip / curConv
-            } else {
-                const set = list.filter(x => x.base == tp)[0].rates[bt]
-                const direct = list.filter(x => x.base == tp)[0].rates[acc]
-                res = (size * pip / set) * direct
-            }
-
-            if (bt == "JPY") {
-                res = res * 100
-            }
-            return res.toFixed(4) * 1
-        }
     }
 
 function Margin() {
@@ -340,7 +327,7 @@ function Margin() {
                 target: "size",
                 obj: MS
             }), select({
-                options: [1,2,3],
+                options: levInputs,
                 label: "Leverage (1:x)",
                 target: "lev",
                 obj: MS
@@ -350,9 +337,9 @@ function Margin() {
                 target: "curConv",
                 obj: MS
             }), field({
-                label: "PIP value:",
+                label: "Required margin " + MS.bt +":",
                 text: true,
-                target: "pip",
+                target: "margin",
                 obj: MS
             }), m('p', [
                 m('span', "Made by:"), m('img', {
@@ -369,7 +356,6 @@ var PS = {
         acc: "USD",
         conv: "USD/EUR",
         get list() {
-            console.log(st.list)
             return st.list
         },
         get tp() {
@@ -462,7 +448,7 @@ function all() {
     return {
         view: () => {
             return m('', [
-                m(PIP),
+//                m(PIP),
                 m(Margin)
             ])
         }

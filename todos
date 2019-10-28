@@ -17,6 +17,8 @@ go through ux checklist for autocomplete components, and test on chrome,
 
 
 mention:
+select can't be centered with css alone
+
 
 flags are paid, freepick
 flags are not manually compiled, therefore there may be mismatch
