@@ -194,4 +194,18 @@ describe('Profit calculator', () => {
         ]
             expect(PSS.profit).toBe(-2.93) 
     })
+    it('same acc', (cb) => {
+            PSS.size = 10000
+            PSS.type = 'buy'
+            PSS.open = 1.11
+            PSS.close = 1.32
+            PSS.period = 0
+            PSS.conv = "EUR/USD"
+            PSS.acc = "EUR"
+            st.list = []
+            st.loadList().then(x=>{
+                expect(PSS.profit).toBe(1900) 
+                cb()
+            })
+    })
 })

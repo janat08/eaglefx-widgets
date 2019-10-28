@@ -1,6 +1,7 @@
 /*eslint-disable semi, semi*/
 import m from "mithril";
 import curToFlag from './curToFlag'
+//import './styles.css'
 
 window.ab = curToFlag
 
@@ -30,7 +31,7 @@ function field({
                 },
                 value: obj[target],
                 style: "text-align: center;",
-                type: 'number'
+                type: 'decimal'
             })]
     return horizontalField(label, control)   
 }
@@ -272,9 +273,10 @@ var st = {
                 background: true,
             })
         })
-        Promise.all(several).then(x => {
+        return Promise.all(several).then(x => {
             st.list = x
             m.redraw()
+            return x
         })
     },
 }
@@ -359,8 +361,7 @@ function Profit () {
                 label: "Close Price:",
                 target: "close",
                 obj: PSS
-            }), 
-            buySellButtons({obj: PSS, target: "type", label: "Position Type:"})
+            }), buySellButtons({obj: PSS, target: "type", label: "Position Type:"})
             ,field({
                 label: "Profit ("+PSS.acc+"):",
                 text: true,
@@ -576,18 +577,112 @@ function all() {
     }
 }
 
-//class PopUpInfo extends HTMLElement {
+//customElements.define('margin-ele', marginEle);
+//
+//class widgetElements extends HTMLElement {
+//      constructor(name, type) {
+//    // Always call super first in constructor
+//    super();
+//    this.type = type
+//    this.name = name
+//    var shadow = this.attachShadow({mode: 'open'});
+//    
+//    var wrapper = document.createElement('span');
+//    wrapper.setAttribute('class','wrapper');
+//    
+//    var bulma = document.createElement('link')
+//    bulma.rel = "stylesheet"
+//    bulma.href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+//    
+//    shadow.appendChild(bulma)
+//    shadow.appendChild(wrapper)
+//    
+//    this.wrapper = wrapper
+//  }
+//  connectedCallback() {
+//    m.mount(this.wrapper, this.type)
+//}
+//disconnectedCallback(){
+//    m.mount(this.wrapper, null)
+//}
+//}
+
+
+//class marginEle extends HTMLElement {
 //  constructor() {
 //    // Always call super first in constructor
 //    super();
 //    var shadow = this.attachShadow({mode: 'open'});
+//    
 //    var wrapper = document.createElement('span');
 //    wrapper.setAttribute('class','wrapper');
+//    
+//    var bulma = document.createElement('link')
+//    bulma.rel = "stylesheet"
+//    bulma.href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+//    
+//    shadow.appendChild(bulma)
 //    shadow.appendChild(wrapper)
-//    m.mount(document.querySelector('.wrapper'), all)
-//    console.log(document)
+//    
+//    this.wrapper = wrapper
 //  }
+//  connectedCallback() {
+//    m.mount(this.wrapper, Margin)
 //}
+//disconnectedCallback(){
+//    m.mount(this.wrapper, null)
+//}
+//}
+//customElements.define('margin-ele', marginEle);
+//
+//class profitEle extends HTMLElement {
+//  constructor() {
+//    // Always call super first in constructor
+//    super();
+//    var shadow = this.attachShadow({mode: 'open'});
+//    
+//    var wrapper = document.createElement('span');
+//    wrapper.setAttribute('class','wrapper');
+//    
+//    var bulma = document.createElement('link')
+//    bulma.rel = "stylesheet"
+//    bulma.href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+//    
+//    shadow.appendChild(bulma)
+//    shadow.appendChild(wrapper)
+//    
+//    this.wrapper = wrapper
+//  }
+//  connectedCallback() {
+//    m.mount(this.wrapper, Profit)
+//}
+//}
+//customElements.define('profit-ele', profitEle);
+//
+//
+//class pipEle extends HTMLElement {
+//  constructor() {
+//    // Always call super first in constructor
+//    super();
+//    var shadow = this.attachShadow({mode: 'open'});
+//    
+//    var wrapper = document.createElement('span');
+//    wrapper.setAttribute('class','wrapper');
+//    
+//    var bulma = document.createElement('link')
+//    bulma.rel = "stylesheet"
+//    bulma.href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+//    
+//    shadow.appendChild(bulma)
+//    shadow.appendChild(wrapper)
+//    
+//    this.wrapper = wrapper
+//  }
+//  connectedCallback() {
+//    m.mount(this.wrapper, PIP)
+//}
+//}
+//customElements.define('pip-ele', pipEle);
 
 if(process.env.NODE_ENV !== 'test'){
  m.mount(document.querySelector('.root'), all);
