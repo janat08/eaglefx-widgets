@@ -248,6 +248,7 @@ var st = {
             return "loading"
         }
         const res = st.list.filter(x => x.base == acc)[0].rates[bt]
+        
         return res
     },
     loadList: function() {
@@ -289,13 +290,32 @@ const PSS = {
             return this.type == "buy"
         },
         get curConv() {
-            const {tp, bt} = this
+            const {tp, acc} = this
             return st.curConv(tp, bt)
         },
         get profit() {
-            const {size, curConv, acc, bt, tp, list} = this
-            let res = 1
-            return res
+            const {type, open, close, size, curConv, acc, bt, tp, list} = this
+            if (!list.length) {
+                return "loading"
+            }
+            let res = -((close  - open) * size)
+            const typeB = type == "buy"
+            let rate
+            let isBT = bt == acc,
+                isTP = tp == acc
+            if (isTP) {
+                rate = close
+            } else {
+                console.log(acc)
+                rate = st.curConv(bt, acc)
+            }
+            if (typeB){
+                res = -res * rate
+            } else {
+                res = res / rate
+            }
+            
+            return res.toFixed(2)*1
         },
         get list() {
             return st.list
@@ -341,7 +361,7 @@ function Profit () {
             }), 
             buySellButtons({obj: PSS, target: "type", label: "Position Type:"})
             ,field({
-                label: "Profit in Account Currency",
+                label: "Profit ("+PSS.acc+"):",
                 text: true,
                 target: "profit",
                 obj: PSS
@@ -370,8 +390,8 @@ const MS = {
         conv: "USD/EUR",
         lev: "1:10",
         get curConv() {
-            const {tp, bt} = this
-            return st.curConv(tp, bt)
+            const {tp, acc} = this
+            return st.curConv(tp, acc)
         },
         get levV() {
           return this.lev.split(":")[1]  
@@ -427,16 +447,16 @@ function Margin() {
                 obj: MS
             }), select({
                 options: levInputs,
-                label: "Leverage (1:x)",
+                label: "Leverage:",
                 target: "lev",
                 obj: MS
             }), field({
-                label: `Current Conversion Price: (${MS.acc + '/' + MS.bt}):`,
+                label: `Current Conversion Price (${MS.tp + '/' + MS.acc}):`,
                 text: true,
                 target: "curConv",
                 obj: MS
             }), field({
-                label: "Required margin " + MS.bt +":",
+                label: "Required margin (" + MS.acc +"):",
                 text: true,
                 target: "margin",
                 obj: MS
@@ -524,7 +544,7 @@ function PIP() {
                 target: "size",
                 obj: PS
             }), field({
-                label: `Current Conversion Price: (${PS.acc + '/' + PS.bt}):`,
+                label: `Current Conversion Price (${PS.acc + '/' + PS.bt}):`,
                 text: true,
                 target: "curConv",
                 obj: PS
@@ -547,12 +567,16 @@ function all() {
     return {
         view: () => {
             return m('', [
-//                m(PIP),
-                m(Profit)
+                m(Profit),
+                m(PIP),
+                m(Margin)
             ])
         }
     }
 }
+if(process.env.NODE_ENV !== 'test'){
  m.mount(document.querySelector('.root'), all);
+}
+
 
 export {st, MS, PS, PSS}

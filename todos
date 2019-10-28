@@ -18,6 +18,7 @@ go through ux checklist for autocomplete components, and test on chrome,
 
 mention:
 select can't be centered with css alone
+there's no example of when to invert the sign
 
 
 flags are paid, freepick

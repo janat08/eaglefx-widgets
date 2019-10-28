@@ -161,7 +161,7 @@ describe('Profit calculator', () => {
         PSS.conv = "EUR/USD"
         PSS.acc = "USD"
     })
-    it.only('base case', () => {
+    it('base case', () => {
             PSS.size = 10000
             PSS.type = 'sell'
             PSS.open = 1.35777
@@ -169,9 +169,29 @@ describe('Profit calculator', () => {
             PSS.period = 0
             PSS.conv = "EUR/USD"
             PSS.acc = "EUR"
+        
             expect(PSS.profit).toBe(49.29) 
     })
     it('foreign acc', () => {
-
+            PSS.size = 10000
+            PSS.type = 'buy'
+            PSS.open = 0.73044
+            PSS.close = 0.73025
+            PSS.period = 0
+            PSS.conv = "EUR/GBP"
+            PSS.acc = "USD"
+            st.list = [{
+                base: "GBP",
+                rates: {
+                    "USD": 1.54,
+                }
+            }, {
+                base: "EUR",
+                rates: {
+                    "GBP": 1
+                }
+            }
+        ]
+            expect(PSS.profit).toBe(-2.93) 
     })
 })
